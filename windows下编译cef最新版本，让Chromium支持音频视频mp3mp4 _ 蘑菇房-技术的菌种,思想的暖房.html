@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://www.moguf.com/post/wincefbuild -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 | 蘑菇房-技术的菌种,思想的暖房</title>
+    <meta name="robots" content="all">
+    <meta name="keywords" content="windows,cef,chromium,build,mp4">
+    <meta name="description" content="默认cef编译发布的版本不带部分视频功能，需要支持这些必须自己编译。详细说明在windows下编译cef支持音频视频mp3mp4的问题处理">
+    <link rel="stylesheet" href="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/style.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+
+    <!--[if IE]>
+    <script src="http://www.moguf.com/libs/html5.js"></script>
+    <![endif]-->
+	<script src="https://push.zhanzhang.baidu.com/push.js"></script><script src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/hm.js.下载"></script><script src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/jquery.min.js.下载"></script>
+
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container"><a id="logo" href="http://www.moguf.com/" title="蘑菇房">蘑菇房</a>
+        <nav>
+          <ul>
+              
+              <li><a href="http://www.moguf.com/archives" title="文章存档">文章存档</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+<div id="main" class="container page">
+
+  <h1 class="title">windows下编译cef最新版本，让Chromium支持音频视频mp3mp4</h1>
+  <article class="post block posts">
+ 
+    <div class="entry"><p>在工程中需要用到一些视频功能。CEF发布的版本并不支持，网络上编译发布者也寥寥无几，即便在茫茫网络中找到，可能也是比较早的版本或不适合使用。</p>
+<p><strong>编译目标版本：</strong> Chromium 93.0.4577.82 x86  </p>
+<blockquote>
+<p><strong>版本编译环境: </strong><br>硬件： i3-9100 / 16G RAM / 1T固态<br>软件： windows10 x64<br><strong>编译环境：</strong><br>Visual Studio 2019 Pro<br>Python 3.9<br>Windows 10 SDK (10.0.19041.0)<br>ninja (python 的编译工具)<br>需要一把能够摘到苹果的梯子（网络环境很重要）  </p>
+</blockquote>
+<!--more-->
+<h2 id="-">一. 编译环境</h2>
+<p>准备好你的时间和精力，找到你心目中的白雪公主</p>
+<blockquote>
+<p><strong>步骤如下： </strong>  </p>
+<ol>
+<li>找到对应版本，以稳定版本4577(93.0.4577.82)编译为例   </li>
+<li>下载自动编译脚本<code>automate-git.py</code>   </li>
+<li>保存到 <code>c:\cef</code> 目录下(最好固态听硬盘100%狂转声音心痛)  </li>
+<li>执行脚本，下载4577版本编译  </li>
+<li>喝咖啡看书去  </li>
+<li>开启音视频的支持选项（MP3/MP4）   </li>
+<li>执行脚本，编译Release版本  </li>
+<li>继续喝咖啡看书去   </li>
+<li>测试收工  </li>
+</ol>
+</blockquote>
+<p>cef发布版本地址，实际生成要稳定版本，想要吃大闸蟹的直接最新版本<br><a href="https://cef-builds.spotifycdn.com/index.html">https://cef-builds.spotifycdn.com/index.html</a></p>
+<p>下载编译脚本<code>automate-git.py</code>地址<br><a href="https://bitbucket.org/chromiumembedded/cef/raw/master/tools/automate/automate-git.py">https://bitbucket.org/chromiumembedded/cef/raw/master/tools/automate/automate-git.py</a></p>
+<h2 id="-">二. 下载编译版本</h2>
+<p>手工敲命令太麻烦</p>
+<blockquote>
+<p><strong>重点：</strong>  如你已经有个能摘到苹果的梯子(<a href="http://127.0.0.1:10809/">http://127.0.0.1:10809</a>)<br><strong>重点：</strong>  如你已经有个能摘到苹果的梯子(<a href="http://127.0.0.1:10809/">http://127.0.0.1:10809</a>)<br><strong>重点：</strong>  如你已经有个能摘到苹果的梯子(<a href="http://127.0.0.1:10809/">http://127.0.0.1:10809</a>)  </p>
+</blockquote>
+<p>创建两个文件用来下载和设置代理  </p>
+<blockquote>
+<p>down4577.bat ---- 下载的命令批处理<br>proxy_webrtc.boto ---- 编译工具的代理配置   </p>
+</blockquote>
+<p><strong>down4577.bat</strong></p>
+<pre><code>echo off
+echo proxy setup ...
+echo --------------------
+netsh winhttp set proxy 127.0.0.1:10809
+git config --global http.proxy http://localhost:1080
+git config --global https.proxy http://localhost:1080
+set https_proxy=http://127.0.0.1:10809
+set http_proxy=http://127.0.0.1:10809
+set BOTO_PATH=C:\cef\proxy_webrtc.boto
+set NO_AUTH_BOTO_CONFIG=C:\cef\proxy_webrtc.boto
+
+echo env setup ...
+echo ----------------------
+set CEF_USE_GN=1
+set GN_DEFINES=is_official_build=true proprietary_codecs=true ffmpeg_branding=Chrome
+set GYP_DEFINES=buildtype=Official
+set GYP_MSVS_VERSION=2019
+set CEF_ARCHIVE_FORMAT=tar.bz2
+set GN_ARGUMENTS=--ide=vs2019 --sln=cef --filters=//cef/*
+
+python automate-git.py --download-dir=C:\cef\src4577 --branch=4577 --no-build
+
+pause
+</code></pre><p><strong>proxy_webrtc.boto</strong>  </p>
+<pre><code>[Boto]
+proxy = 127.0.0.1
+proxy_port = 10809
+proxy_type = http
+</code></pre><p>具体参数看下面说明，下载时需要注意些内容</p>
+<blockquote>
+<p><strong>注：</strong>  </p>
+<ul>
+<li>bat中netsh winhttp命令需要管理员权限  </li>
+<li>有装TortoiseGit的把Shell图标更新关闭  </li>
+<li>有杀毒的也最好关了  </li>
+<li>用完proxy注意关，以免影响其他程序  </li>
+<li>注意关掉电脑睡眠功能  </li>
+</ul>
+</blockquote>
+<h2 id="-">三. 设置编译参数，开启音视频支持</h2>
+<blockquote>
+<p><strong>创建编译配置文件:</strong>  </p>
+<ol>
+<li>mp4_config.txt  ---- 开启参数配置定义  </li>
+<li>update_mp4.py  ---- 更新脚本    </li>
+<li>udpate_mp4.bat  ---- 更新执行命令  </li>
+</ol>
+</blockquote>
+<p>上面的文件全部都放在 <code>c:\cef</code> 目录下</p>
+<p><strong>mp4_config.txt</strong>  这些编译开关全部打开，手工改直接吐血  </p>
+<pre><code>#define CONFIG_FLV_DECODER 1
+#define CONFIG_H263_DECODER 1
+#define CONFIG_H263I_DECODER 1
+#define CONFIG_MPEG4_DECODER 1
+#define CONFIG_MPEGVIDEO_DECODER 1
+#define CONFIG_MSMPEG4V1_DECODER 1
+#define CONFIG_MSMPEG4V2_DECODER 1
+#define CONFIG_MSMPEG4V3_DECODER 1
+#define CONFIG_RV10_DECODER 1
+#define CONFIG_RV20_DECODER 1
+#define CONFIG_RV30_DECODER 1
+#define CONFIG_RV40_DECODER 1
+#define CONFIG_AC3_DECODER 1
+#define CONFIG_AMRNB_DECODER 1
+#define CONFIG_AMRWB_DECODER 1
+#define CONFIG_COOK_DECODER 1
+#define CONFIG_SIPR_DECODER 1
+#define CONFIG_FLV_ENCODER 1
+#define CONFIG_H263_ENCODER 1
+#define CONFIG_MPEG4_ENCODER 1
+#define CONFIG_MSMPEG4V2_ENCODER 1
+#define CONFIG_MSMPEG4V3_ENCODER 1
+#define CONFIG_RV10_ENCODER 1
+#define CONFIG_RV20_ENCODER 1
+#define CONFIG_AAC_ENCODER 1
+#define CONFIG_AC3_ENCODER 1
+#define CONFIG_AC3_PARSER 1
+#define CONFIG_COOK_PARSER 1
+#define CONFIG_H263_PARSER 1
+#define CONFIG_MPEG4VIDEO_PARSER 1
+#define CONFIG_MPEGVIDEO_PARSER 1
+#define CONFIG_RV30_PARSER 1
+#define CONFIG_RV40_PARSER 1
+#define CONFIG_SIPR_PARSER 1
+#define CONFIG_AC3_DEMUXER 1
+#define CONFIG_AMR_DEMUXER 1
+#define CONFIG_AMRNB_DEMUXER 1
+#define CONFIG_AMRWB_DEMUXER 1
+#define CONFIG_AVI_DEMUXER 1
+#define CONFIG_AVISYNTH_DEMUXER 1
+#define CONFIG_FLV_DEMUXER 1
+#define CONFIG_H263_DEMUXER 1
+#define CONFIG_H264_DEMUXER 1
+#define CONFIG_MPEGTS_DEMUXER 1
+#define CONFIG_MPEGTSRAW_DEMUXER 1
+#define CONFIG_MPEGVIDEO_DEMUXER 1
+#define CONFIG_RM_DEMUXER 1
+#define CONFIG_AC3_MUXER 1
+#define CONFIG_AMR_MUXER 1
+#define CONFIG_AVI_MUXER 1
+#define CONFIG_FLV_MUXER 1
+#define CONFIG_H263_MUXER 1
+#define CONFIG_H264_MUXER 1
+#define CONFIG_MPEGTS_MUXER 1
+#define CONFIG_RM_MUXER 1
+</code></pre><p><strong>update_mp4.py</strong>  更新脚本</p>
+<pre><code>import sys
+import shutil
+import re
+import os
+
+def Replace(change,content):
+  str_array = re.findall("#define\s\w+\s",change)
+  str_replace =str_array[0]
+  str_replace+="0"
+  str_dest =str_array[0]
+  str_dest+="1"
+  return content.replace(str_replace,str_dest)
+
+if len(sys.argv) &gt; 2 :
+  src_file_name =sys.argv[1]
+  dest_file_name=sys.argv[2]
+else:
+  src_file_name =raw_input("Please input src file path name:").replace("\r","")
+  dest_file_name =raw_input("Please input dest file path name:").replace("\r","")
+
+print(src_file_name)
+print(dest_file_name)
+
+file_src_handle = open(src_file_name,"r")
+file_src_lines = file_src_handle.readlines()
+file_src_handle.close()
+file_dest_handle = open(dest_file_name,"r")
+dest_file_content = file_dest_handle.read()
+file_dest_handle.close()
+
+for line in file_src_lines:
+  dest_file_content = Replace(line,dest_file_content)
+
+write_file_path = os.getcwd()+"\\"+ os.path.basename(dest_file_name)
+ready_copy = open(write_file_path,"w")
+ready_copy.write(dest_file_content)
+ready_copy.close()
+
+shutil.copy(write_file_path,dest_file_name)
+os.remove(write_file_path)
+print("Support mp4 Success!!!")
+</code></pre><p><strong>update_mp4.bat</strong> 执行脚本，修改x64和x86的编译开关</p>
+<pre><code>python update_mp4.py c:/cef/mp4_config.txt C:/cef/src4577/chromium/src/third_party/ffmpeg/chromium/config/Chrome/win/ia32/config.h
+python update_mp4.py c:/cef/mp4_config.txt C:/cef/src4577/chromium/src/third_party/ffmpeg/chromium/config/Chrome/win/x64/config.h
+pause
+</code></pre><h2 id="-release-">四. 编译Release版本</h2>
+<blockquote>
+<p><strong>批处理文件</strong><br>build_x86_4577.bat   </p>
+</blockquote>
+<p>开启后编译是最终结果（需要的版本），只用于发布的话release版本足以。全编太耗时了，现在想到要买i9的好处，或公司内组网编译</p>
+<p>创建 <strong>build_x86_4577.bat</strong>  编译x86 Release批处理</p>
+<pre><code>set https_proxy=http://127.0.0.1:10809
+set http_proxy=http://127.0.0.1:10809
+set BOTO_PATH=C:\cef\proxy_webrtc.boto
+set NO_AUTH_BOTO_CONFIG=C:\cef\proxy_webrtc.boto
+
+set PYTHONLEGACYWINDOWSSTDIO=utf8
+set PYTHONIOENCODING=utf8
+set PYTHONUTF8=1
+set CEF_USE_GN=1
+set GN_DEFINES=is_official_build=true proprietary_codecs=true ffmpeg_branding=Chrome
+set GYP_DEFINES=buildtype=Official
+set GYP_MSVS_VERSION=2019
+set CEF_ARCHIVE_FORMAT=tar.bz2
+set DEPOT_TOOLS_WIN_TOOLCHAIN=0
+set GYP_GENERATORS=ninja,msvs-ninja
+set GN_ARGUMENTS=--ide=vs2019 --sln=cef --filters=//cef/*
+set WIN_CUSTOM_TOOLCHAIN=1
+set CEF_VCVARS=none
+
+set GYP_MSVS_OVERRIDE_PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+set SDK_ROOT=C:\Program Files (x86)\Windows Kits\10
+set INCLUDE=C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um;C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\include;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\atlmfc\include;%INCLUDE%
+set PATH=C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\bin\HostX64\x86;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Redist\MSVC\14.29.30133\x64\Microsoft.VC141.CRT;%PATH%
+set LIB=C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x86;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\ucrt\x86;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\lib\x86;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\atlmfc\lib\x86;%LIB%
+set VS_CRT_ROOT=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\crt\src\vcruntime
+
+python automate-git.py --download-dir=C:\cef\src4577 --branch=4577 --build-log-file --verbose-build --force-distrib --force-build --no-debug-build --no-update
+
+pause
+</code></pre><p>Win SDK 目录 <code>C:\Program Files (x86)\Windows Kits\10</code><br>VS 2019 目录 <code>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional</code>  </p>
+<p>根据实际情况替换</p>
+<blockquote>
+<p><strong>注：</strong> 要x64的版本，在最后 python 编译命令最后加 <code>--x64-build</code> 选项</p>
+<pre><code>python automate-git.py --download-dir=C:\cef\src4577 --branch=4577 --build-log-file --verbose-build --force-distrib --force-build --no-debug-build --no-update --x64-build
+</code></pre></blockquote>
+<p>具体参数看下面说明</p>
+<p>执行命令等完成，最好找点其他事做，如喝咖啡看书啊之类的。</p>
+<h2 id="-">五. 验收成果</h2>
+<p>编译完成后在out目录下会生成很多测试exe，方便检查编译的相关功能 </p>
+<p>输出目录</p>
+<pre><code>C:\cef\src4577\chromium\src\out
+</code></pre><p>打开 cefclient.exe 文件，打开<code>http://html5test.com</code>简单查看功能编译情况  </p>
+<p>编译测试通过的CEF x86版本，保留了发布用文件，如需要可自取。压缩包里带了两个测试exe</p>
+<pre><code>cefclient.exe  编译cef时产生的
+SimpleBrowser2.exe 自己编译的测试文件  
+
+Chromium 93.0.4577.82
+链接：https://pan.baidu.com/s/10YOd0M3injp39BMl-Ts3Dw 
+提取码：1a7n
+</code></pre><p>编译个版本真不容易，太吃CPU全程100%好几小时，没有好的CPU或没有组网（VS企业版有分布式编译），编译版本太累。</p>
+<h2 id="-">六. 编译参数说明</h2>
+<p>上面使用的的参数</p>
+<blockquote>
+<p><code>--help</code> 编译选项明细列表<br><code>--download-dir</code> 源码下载目录<br><code>--depot-tools-dir</code>工具包目录<br><code>--branch</code> 源码分支(默认trunk主分支)<br><code>--no-build</code> 下载完不自动开始编译（需要修改编译配置)<br><code>--no-update</code> 确定源码下载完毕仅重新编译时使用<br><code>--force-build</code> 强制编译（发现在有成功编译的时候再编译不会执行，可以加上这个<br><code>--no-debug-build</code> 只编译release版本<br><code>--no-release-build</code> 只编译debug版本  </p>
+</blockquote>
+<h2 id="-">七. 其他相关问题</h2>
+<p><strong>1. Visual Studio 2019 版本问题</strong>  </p>
+<p><strong>Q：</strong> 电脑上原来安装的是社区版本，不知道什么情况没编译成功，浪费了不少时间<br><strong>A：</strong> 改装了Pro版本就OK  </p>
+<p><strong>2. Windows的编译环境问题</strong>  </p>
+<p><strong>Q：</strong> 机器上装了很多编译环境， msys64、FPC等<br><strong>A：</strong> 直接把目录名字加 <code>.bak</code>防止搜索到不该使用的编译器   </p>
+<p><strong>3. tortoise git status cache 消耗大量CUP资源，处理方法</strong></p>
+<p><strong>Q：</strong> 在下载和编译时git目录会频繁更新目录内的文件，TortoiseGit会刷新Shell的图标，导致大量消耗宝贵的CUP。编译时先关闭Shell的图标刷新<br><strong>A：</strong> 关闭 TortoiseGit Shell, 在资源管理器中右击选择设置  </p>
+<pre><code>Settings-&gt;Icon Overlays-&gt;Status cache-&gt;None
+</code></pre><p><strong>4. 要命的GBK Python编码问题 </strong>  </p>
+<p><strong>Q：</strong> windows下默认是GBK的，python在读取文件时在没指定编码的情况下会直接使用环境信息，编译到一半花费了大量时间，中间Error GBK错误，吐血  </p>
+<pre><code>    bundled_paths = _bundle_v3(tmp_out_dir, in_path, out_path,
+  File "../../chrome/browser/resources/tools/optimize_webui.py", line 185, in _bundle_v3
+    output = f.read()
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 137404: illegal multibyte sequence
+[26852/50270] ninja -t msvc -e environment.x86 -- ..\..\third_party\llvm-build\Release+Asserts\bin\lld-link.exe /OUT:./bytecode_builtins_list_generator.exe /nologo -libpath:..\..\third_party\llvm-build\Release+Asserts\lib\clang\13.0.0\lib\windows "-libpath:../../../../../../Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.29.30133/ATLMFC/lib/x86" "-libpath:../../../../../../Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.29.30133/lib/x86" "-libpath:../../../../../../Program Files (x86)/Windows Kits/NETFXSDK/4.8/lib/um/x86" "-libpath:../../../../../../Program Files (x86)/Windows Kits/10/lib/10.0.19041.0/ucrt/x86" "-libpath:../../../../../../Program Files (x86)/Windows Kits/10/lib/10.0.19041.0/um/x86"  /PDB:./bytecode_builtins_list_generator.exe.pdb @./bytecode_builtins_list_generator.exe.rsp
+</code></pre><p><strong>A：</strong> 解决方法：第一种，设置全局环境utf-8 <code>set PYTHONUTF8=1</code>，第二种，设置你的window变成英文（这个也不错）  </p>
+<pre><code>set PYTHONLEGACYWINDOWSSTDIO=utf8
+set PYTHONIOENCODING=utf8
+set PYTHONUTF8=1
+</code></pre><p>没空去试，上面三个那个正确全设上 stackoverflow参考</p>
+<p><strong>参考地址：</strong> <a href="https://stackoverflow.com/questions/50933194/how-do-i-set-the-pythonutf8-environment-variable-to-enable-utf-8-encoding-by-def">https://stackoverflow.com/questions/50933194/how-do-i-set-the-pythonutf8-environment-variable-to-enable-utf-8-encoding-by-def</a></p>
+<p><strong>5. Windows SDK 问题 </strong>  </p>
+<p><strong>Q：</strong> 安装VS2019是装了SDK，但Windows SDK目录不知道在那里<br><strong>A：</strong> 独立下载安装了个WinSDK，目录默认<code>C:\Program Files (x86)\Windows Kits\10</code>    </p>
+<p><strong>下载地址：</strong> <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/">https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/</a></p>
+<p><strong>6. 取消Git全局代理 </strong>  </p>
+<pre><code>git config --global --unset http.proxy
+git config --global --unset https.proxy
+</code></pre><p><strong>7. 取消winhttp全局代理 </strong>  </p>
+<pre><code>netsh winhttp reset proxy
+</code></pre><p><strong>8. 安装 ninja</strong></p>
+<pre><code>pip install ninja
+</code></pre><h2 id="end-moguf-com-">END(Moguf.com 蘑菇房)</h2>
+</div>
+    <div class="meta"><time>2021-09-19</time></div>
+   
+    <div class="share" style="margin-top: 10px;">
+        <!-- Baidu Button BEGIN -->
+<div class="bshare-custom">
+<div class="bsPromo bsPromo2"></div>
+<a title="分享到" href="http://www.bshare.cn/" id="bshare-shareto" class="bshare-more">分享到</a>
+<a title="分享到微信" class="bshare-weixin" href="javascript:void(0);">微信</a>
+<a title="分享到腾讯微博" class="bshare-qqmb">腾讯微博</a>
+<a title="分享到网易微博" class="bshare-neteasemb">网易微博</a>
+<a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);">QQ空间</a>
+<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+<span class="BSHARE_COUNT bshare-share-count" style="float: none;">51.1K</span>
+</div>
+<script type="text/javascript" charset="utf-8" src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/buttonLite.js.下载"></script>
+<script type="text/javascript" charset="utf-8" src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/bshareC0.js.下载"></script>
+        <!-- Baidu Button END -->
+
+    </div>
+  </article>
+  
+
+  
+   <div class="sidebar" style="margin-top: 43px;">
+  	<div class="block">
+    <div class="widget about">
+        <strong class="wt">关于蘑菇房</strong>
+        <div class="wc" style="text-indent: 2em;">
+            <p>不断进步的技术，需要不断去学习。所学的东西，在实际使用中不断去回顾。最终变成属于自己一部分。</p>
+            <p>技术似一缕缕的菌丝，给个适合的环境就能茁壮成长。有一个遮风挡雨的地方，千万缕菌丝在此附着，思想随之生根发芽。</p>
+            <!-- <p>技术的菌种，思想的暖房</p> -->
+        </div>
+        <strong class="wt">联系方式</strong>
+        <div class="wc" style="padding-top:0;padding-bottom:0;">
+            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=178280064&amp;site=qq&amp;menu=yes" target="_blank" style="margin-left: 0px;" class="contractmethod">
+                <i class="iconfont"></i>
+            </a>
+            <a href="https://github.com/cmacro" target="_blank" class="contractmethod">
+                <i class="iconfont" style="position:relative;top:4px;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+      
+<div class="block">
+  
+    <div class="widget about">
+      <strong class="wt">搜索</strong>
+      <div class="wc">
+        <p>
+        </p><form action="https://www.moguf.com/search">
+          <input type="text" name="keyword" style="line-height:25px; text-indent:5px; width:75%;" id="keyword" placeholder="请输入关键词"> <input type="submit" value="搜索" style="line-height:30px; height:30px; width:50px; cursor: pointer;" name="searchBtn">
+          </form>
+
+        <p></p>
+        
+        
+      </div>
+    </div>
+  </div>
+    
+<div class="block">
+    <div class="widget about">
+      <strong class="wt">相关文章</strong>
+      <div class="wc">
+          <ul>
+              
+              <li><a href="http://www.moguf.com/post/wininstallzipmysql" title="windows下精简安装MySQL">windows下精简安装MySQL</a></li>
+              
+              <li><a href="http://www.moguf.com/post/wininstallzipredis" title="windows下绿色安装Redis">windows下绿色安装Redis</a></li>
+              
+              <li><a href="http://www.moguf.com/post/devwinskin01" title="窗体皮肤实现 - 重绘窗体非客户区 (一)">窗体皮肤实现 - 重绘窗体非客户区 (一)</a></li>
+              
+              <li><a href="http://www.moguf.com/post/modifydns" title="快速修改设置DNS，适应不同工作环境">快速修改设置DNS，适应不同工作环境</a></li>
+              
+              <li><a href="http://www.moguf.com/post/wininstallzipmongodb" title="windows下绿色安装MongoDB">windows下绿色安装MongoDB</a></li>
+              
+              <li><a href="http://www.moguf.com/post/wincefbuild" title="windows下编译cef最新版本，让Chromium支持音频视频mp3mp4">windows下编译cef最新版本，让Chromium支持音频视频mp3mp4</a></li>
+              
+              <li><a href="http://www.moguf.com/post/windockerrunredis" title="Win10下使用Docker运行redis">Win10下使用Docker运行redis</a></li>
+              
+              <li><a href="http://www.moguf.com/post/devwinskin05" title="窗体皮肤实现 - 在VC中简单实现绘制（五）">窗体皮肤实现 - 在VC中简单实现绘制（五）</a></li>
+              
+              <li><a href="http://www.moguf.com/post/devwinskin02" title="窗体皮肤实现 - 重绘窗体非客户区（二）">窗体皮肤实现 - 重绘窗体非客户区（二）</a></li>
+              
+              <li><a href="http://www.moguf.com/post/devwinskin03" title="窗体皮肤实现 - 重绘窗体非客户区（三）">窗体皮肤实现 - 重绘窗体非客户区（三）</a></li>
+              
+          </ul>
+        <div class="sep10"></div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="block">
+    <div class="widget about">
+      <strong class="wt">文章标签</strong>
+      <div class="wc">
+         <div class="tags">
+        
+        <p>
+          
+          <a href="http://www.moguf.com/tag/windows" title="windows">windows</a>，
+          
+          <a href="http://www.moguf.com/tag/cef" title="cef">cef</a>，
+          
+          <a href="http://www.moguf.com/tag/chromium" title="chromium">chromium</a>，
+          
+          <a href="http://www.moguf.com/tag/build" title="build">build</a>，
+          
+          <a href="http://www.moguf.com/tag/mp4" title="mp4">mp4</a>
+          
+        </p>
+        
+      </div>
+        <div class="sep10"></div>
+      </div>
+    </div>
+  </div>
+    
+<div class="block">
+    <div class="widget about">
+      <strong class="wt">最新文章</strong>
+      <div class="wc">
+          <ul>
+              
+              <li><a href="http://www.moguf.com/post/removeexcelpwd" title="破解Excel文件密码">破解Excel文件密码</a></li>
+              
+              <li><a href="http://www.moguf.com/post/wincefbuild" title="windows下编译cef最新版本，让Chromium支持音频视频mp3mp4">windows下编译cef最新版本，让Chromium支持音频视频mp3mp4</a></li>
+              
+              <li><a href="http://www.moguf.com/post/webpacknotloadfile" title="js文件打包 无法加载文件 ..\webpack.ps1，因为在此系统上禁止运行脚本">js文件打包 无法加载文件 ..\webpack.ps1，因为在此系统上禁止运行脚本</a></li>
+              
+              <li><a href="http://www.moguf.com/post/debianinstallcmake" title="Debian 安装最新版本CMake">Debian 安装最新版本CMake</a></li>
+              
+              <li><a href="http://www.moguf.com/post/netipshowall" title="获取网络下所有分配的IP地址">获取网络下所有分配的IP地址</a></li>
+              
+              <li><a href="http://www.moguf.com/post/mariadbcharacter" title="Mariadb中文字符集问题处理">Mariadb中文字符集问题处理</a></li>
+              
+              <li><a href="http://www.moguf.com/post/linuxsudoallow" title="linux sudo命令权限分配">linux sudo命令权限分配</a></li>
+              
+              <li><a href="http://www.moguf.com/post/linuxopenllcmd" title="linux 开启ll命令">linux 开启ll命令</a></li>
+              
+              <li><a href="http://www.moguf.com/post/winbatchcommands" title="bat批处理命令使用">bat批处理命令使用</a></li>
+              
+              <li><a href="http://www.moguf.com/post/octopiwifi3dprinter" title="树莓派Octoprint章鱼实现WiFi无线3D打印">树莓派Octoprint章鱼实现WiFi无线3D打印</a></li>
+              
+          </ul>
+        <div class="sep10"></div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+<script src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/prettify.js.下载" type="text/javascript"></script>
+<script type="text/javascript">
+  (function () {
+    $("pre").addClass("prettyprint");
+    prettyPrint();
+  })()
+</script>
+ 
+    <footer id="main-footer">
+    <div class="container">
+      <p>
+        <a href="http://www.moguf.com/page/about" title="关于我">关于我</a>
+	    | <a href="http://gleam.cnblogs.com/" target="_blank">博客园</a>
+	    | <a href="https://github.com/cmacro" target="_blank">github</a>
+      | <a href="http://www.moguf.com/sitemap.html" target="_blank" title="网站地图">网站地图</a> 
+		  | <a href="http://www.moguf.com/sitemap.xml" target="_blank" title="sitemap">sitemap</a> 
+      </p>
+      <p>Copyright © 2016 by <a href="http://www.moguf.com/" target="_blank">蘑菇房</a> All Rights Reserved
+      <a href="http://www.beian.miit.gov.cn/" target="_blank">沪ICP备16011397号</a>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258310545'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258310545' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1258310545"></span><script src="./windows下编译cef最新版本，让Chromium支持音频视频mp3mp4 _ 蘑菇房-技术的菌种,思想的暖房_files/z_stat.php" type="text/javascript"></script>
+    </p>
+    </div>
+    </footer>
+
+<div class="top">↑
+</div>
+
+
+
+  
+  <script type="text/javascript">
+$(document).ready(function(){
+$(window).scroll(function(){
+if($(this).scrollTop()>100){
+$('.top').fadeIn();}
+else{
+$('.top').fadeOut();} });
+$('.top').click(function(){
+$('body,html').animate({scrollTop:0},800);});
+});
+
+</script>
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?0224451f8df22a9bcbff7232d2df85d5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div></body></html>
