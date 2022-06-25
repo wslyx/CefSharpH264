@@ -1,0 +1,43 @@
+/*-------------------
+*Description:        By www.yiwuku.com
+*Website:            https://app.zblogcn.com/?auth=115
+*Author:             尔今 erx@qq.com
+*update:             2017-01-17
+-------------------*/
+
+if(noRmenu==1){
+	document.oncontextmenu = function() {  
+		event.returnValue = false;  
+	}
+	document.oncontextmenu=function(e){
+		return false;
+	}
+}
+if(noSelect==1){
+	document.onselectstart=function(){
+		return false;
+	}
+}
+document.onkeydown = function(e){  
+	if ((e.keyCode == 116 && noF5 == 1)||(e.ctrlKey&&e.keyCode==82 && noF5 == 1)||(e.keyCode == 123 && noF12 == 1)){  
+		e.preventDefault();  
+	}  
+}
+if(noIframe==1){
+	(function(window) {
+		if (window.location !== window.top.location) {
+			window.top.location = window.location;
+		}
+	})(this);
+}
+$(function(){
+	if(noSelect==1){
+		$("body").attr({style:"-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;"});
+	}
+	if(closeSite==1){
+		$("body").html("<div style=\"position:fixed;top:0;left:0;width:100%;height:100%;text-align:center;background:#fff;padding-top:150px;z-index:99999;\">"+closeTips+"</div>");
+	}
+
+});
+
+//若无十足把握，切勿修改以上代码，容易出错

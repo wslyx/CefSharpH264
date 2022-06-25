@@ -1,0 +1,140 @@
+﻿$(function () {
+  //Navbar
+  var s = document.location;
+  $("#menu > li > a").each(function () {
+    if (this.href == s.toString().split("#")[0]) {
+      $(this).parent().addClass("cu");
+      return false;
+    }
+  });
+  $(function () {
+    $('#menu .drop').before('<em class="dot"><i class="icon-arrow-down-s-line"></i></em>');
+
+    $('.dot').click(function () {
+      $(this).next().slideToggle();
+    });
+  })
+  $('.mobile-menu').click(function () {
+    $(".site-nav").toggleClass("active");
+    $(".fademask").toggleClass("active");
+  });
+  $(document).bind("click", function (e) {
+    if ($('.mobile-menu').is(":visible") && !$(e.target).closest(".mobile-menu").length && !$(e.target).closest(".site-nav").length) {
+      $(".site-nav").removeClass("active");
+      $(".fademask").removeClass("active");
+    }
+  });
+
+  $('.mobile-user').click(function () {
+    $(".sidebar").toggleClass("active");
+    $(".fademask1").toggleClass("active");
+  });
+  $(document).bind("click", function (e) {
+    if ($('.mobile-user').is(":visible") && !$(e.target).closest(".mobile-user").length && !$(e.target).closest(".sidebar").length) {
+      $(".sidebar").removeClass("active");
+      $(".fademask1").removeClass("active");
+    }
+  });
+
+  $('.search-btn').click(function () {
+    $(".search").toggleClass("active");
+  });
+  $(document).bind("click", function (e) {
+    if ($('.search-btn').is(":visible") && !$(e.target).closest(".search-btn").length && !$(e.target).closest(".search").length) {
+      $(".search").removeClass("active");
+    }
+  });
+  //Gotop
+  $("#go-to-top").click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 300);
+    return false;
+  });
+  var Sctop = $(window).scrollTop(),
+    Snum = 500;
+  if (Sctop > Snum) {
+    $("#go-to-top").addClass("active");
+  }
+  $(window).scroll(function () {
+    Sctop = $(window).scrollTop();
+    if (Sctop > Snum) {
+      $("#go-to-top").addClass("active");
+    } else {
+      $("#go-to-top").removeClass("active");
+    }
+  });
+  /*
+  var s = '';
+  var dsn = '';
+  $(".footer span a").each(function () {
+    if (this.href == s) {
+      dsn = 'ok';
+      return false;
+    }
+  });
+   if ( dsn != 'ok'){
+   alert("\u4fdd\u7559\u7248\u6743\u662f\u4e00\u79cd\u7f8e\u5fb7");
+   };
+   */
+});
+//Comments
+zbp.plugin.unbind("comment.reply.start", "system");
+zbp.plugin.on("comment.reply.start", "Jz52_light", function (i) {
+  $("#inpRevID").val(i);
+  var frm = $('#divCommentPost'),
+    cancel = $("#cancel-reply"),
+    temp = $('#temp-frm');
+  var div = document.createElement('div');
+  div.id = 'temp-frm';
+  div.style.display = 'none';
+  frm.before(div);
+  $('#AjaxComment' + i).before(frm);
+  frm.addClass("reply-frm");
+  cancel.show();
+  cancel.click(function () {
+    $("#inpRevID").val(0);
+    var temp = $('#temp-frm'),
+      frm = $('#divCommentPost');
+    if (!temp.length || !frm.length) return;
+    temp.before(frm);
+    temp.remove();
+    $(this).hide();
+    frm.removeClass("reply-frm");
+    return false;
+  });
+  try {
+    $('#txaArticle').focus();
+  } catch (e) {}
+  return false;
+});
+zbp.plugin.on("comment.post.success", "Jz52_light", function () {
+	$("#cancel-reply").click();
+});
+//夜间模式读取
+$(document).ready(function(){
+		var night = zbp.cookie.get('night');
+		if(night == '0'){
+			$('body').removeClass('night');
+			$('.setnight').removeClass('black');
+			$(".setnight").attr("title","关灯");
+		}else if(night == '1'){
+			$('body').addClass('night');
+			$('.setnight').addClass('black');
+			$(".setnight").attr("title","开灯");
+		}
+});
+//夜间模式切换
+function switchNightMode(){
+    if(zbp.cookie.get('night') == '1' || $('body').hasClass('night')){
+        zbp.cookie.set('night','0');
+        $('body').removeClass('night');
+        $('.setnight').removeClass('black');
+		$(".setnight").attr("title","关灯");
+    }else{
+		zbp.cookie.set('night','1');
+        $('body').addClass('night');
+        $('.setnight').addClass('black');
+		$(".setnight").attr("title","开灯");
+    }
+};

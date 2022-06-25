@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.javalc.com/post/66.html -->
+<html style="transform: none;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>windows下编译cef最新版本并支持mp3/mp4_分享你我</title>
+<meta name="keywords" content="分享你我">
+<meta name="description" content="官方：参考地址编译分三大步：    一、配置必须的环境    二、下载    三、编译一、准备工作    1.Win10系统，必须64位，至少8GB的...,分享你我">
+<link rel="prev" title=".net Cron表达式转时间格式" href="https://www.javalc.com/post/65.html">
+<link rel="next" title=".net 多线程下载(已经测试通过)" href="https://www.javalc.com/post/67.html">
+<link rel="canonical" href="https://www.javalc.com/post/66.html">
+<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="blank">
+<link rel="stylesheet" href="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/style.css">
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/push.js.下载"></script><script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/jquery-2.2.4.min.js.下载" type="text/javascript"></script> 
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/zblogphp.js.下载" type="text/javascript"></script> 
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/c_html_js_add.php"></script><script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/prism.js.下载" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/prism.css">
+ 
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/custom.js.下载"></script>
+<link type="text/css" href="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/paywall.css" rel="stylesheet">
+<script type="text/javascript">var zbPath="https://www.javalc.com/", noRmenu = "1", noSelect = "0", noF5 = "0", noF12 = "1", noIframe = "1", webGray = "0", closeSite = "0", closeTips = "网站正在维护，请稍后再访问……";</script>
+<script type="text/javascript">document.writeln(unescape("%3Cscript src=\""+zbPath+"zb_users/plugin/Jsctrl/jsctrl.js\" type=\"text/javascript\"%3E%3C/script%3E"));</script><script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/jsctrl.js.下载" type="text/javascript"></script>
+
+<link rel="stylesheet" href="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/pace-theme-flash.css" type="text/css">
+<script type="text/javascript" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/pace.min.js.下载"></script>
+<link href="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/main.css" rel="stylesheet">
+<style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style></head>
+<body class="  pace-done" style="transform: none;"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+<div class="container" style="transform: none;">
+<div id="header" class="site-header headroom">
+  <div class="site-wrap">
+    <div class="site-logo"> <a href="https://www.javalc.com/" class="logo">分享你我</a> <span></span> </div>
+    <div class="site-nav">
+      <ul id="menu" class="menu">
+        <li id="nvabar-item-index"><a href="https://www.javalc.com/">首页</a></li><li class="menu-item"><a href="https://www.javalc.com/post/category-5.html">网络资源</a>    <em class="dot"><i class="icon-arrow-down-s-line"></i></em><ul class="drop menu-itemdrop">    <li><a href="https://www.javalc.com/post/category-8.html">软件分享</a></li>    <li><a href="https://www.javalc.com/post/category-7.html">key</a></li>  </ul></li><li id="navbar-item-technology"><a href="https://www.javalc.com/post/category-4.html">技术分享</a></li><li id="navbar-item-13"><a href="https://www.javalc.com/post/category-6.html">VPS</a></li><li id="navbar-item-custom"><a href="https://www.javalc.com/58.html">定制服务</a></li>        <li class="menu-item search-nav"><span class="search-btn">搜索</span>
+          <div class="search">
+            <form action="https://www.javalc.com/zb_system/cmd.php?act=search" method="post">
+              <input class="search-ipt" id="search" name="q" placeholder="搜索..." type="text">
+              <button type="submit" class="btn"></button>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="mobile-menu-btn">
+    <button class="mobile-user"><i class="icon-user"></i></button>
+    <button class="mobile-menu"><i class="icon-menu-line"></i></button>
+  </div>
+</div>
+<div class="site-wrap main-container" style="transform: none;">
+  <div class="sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 6770px;">
+    
+  <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: fixed; transform: translateY(30px); width: 240px; left: 1110px; top: 0px;"><div id="mobile-user" class="side-content">       
+<div class="site-box" id="divPrevious">
+<div class="side-title">最近发表</div><ul><li><a title="af-table-column 插件改版支持 VUE3 TS(el-table 自适应列宽)" href="https://www.javalc.com/post/96.html">af-table-column 插件改版支持 VUE3 TS(el-table 自适应列宽)</a></li>
+<li><a title="python-eel-vite-vue-ts 构建桌面应用" href="https://www.javalc.com/post/95.html">python-eel-vite-vue-ts 构建桌面应用</a></li>
+<li><a title="CefSharp (100.0.23)版本编译添加MP4支持、开启ffmpeg支持" href="https://www.javalc.com/post/94.html">CefSharp (100.0.23)版本编译添加MP4支持、开启ffmpeg支持</a></li>
+<li><a title="python selenium 封装使用(处理反爬)" href="https://www.javalc.com/post/93.html">python selenium 封装使用(处理反爬)</a></li>
+<li><a title="CefSharp 处理js默认弹窗" href="https://www.javalc.com/post/92.html">CefSharp 处理js默认弹窗</a></li>
+<li><a title="Cefsharp 拦截请求响应结果" href="https://www.javalc.com/post/91.html">Cefsharp 拦截请求响应结果</a></li>
+<li><a title="CefSharp 滑动、输入、获取标签位置、点击等封装(支持XPath语法操作)" href="https://www.javalc.com/post/90.html">CefSharp 滑动、输入、获取标签位置、点击等封装(支持XPath语法操作)</a></li>
+<li><a title="CefSharp Dom操作封装" href="https://www.javalc.com/post/89.html">CefSharp Dom操作封装</a></li>
+<li><a title="cefsharp 模拟点击的坑" href="https://www.javalc.com/post/88.html">cefsharp 模拟点击的坑</a></li>
+<li><a title="c# 区分虚拟网卡 获取真实网卡信息 判断网卡有线或无线" href="https://www.javalc.com/post/87.html">c# 区分虚拟网卡 获取真实网卡信息 判断网卡有线或无线</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+
+<div class="site-box" id="divTags">
+<div class="side-title">标签列表</div><ul><li><a title="mybatis" href="https://www.javalc.com/tags-1.html">mybatis<span class="tag-count"> (1)</span></a></li>
+<li><a title="数据库" href="https://www.javalc.com/tags-2.html">数据库<span class="tag-count"> (1)</span></a></li>
+<li><a title="手机软件" href="https://www.javalc.com/tags-3.html">手机软件<span class="tag-count"> (0)</span></a></li>
+<li><a title="PC软件" href="https://www.javalc.com/tags-4.html">PC软件<span class="tag-count"> (0)</span></a></li>
+<li><a title="教程" href="https://www.javalc.com/tags-5.html">教程<span class="tag-count"> (0)</span></a></li>
+<li><a title="技术分享" href="https://www.javalc.com/tags-6.html">技术分享<span class="tag-count"> (18)</span></a></li>
+<li><a title="软件分享" href="https://www.javalc.com/tags-7.html">软件分享<span class="tag-count"> (0)</span></a></li>
+<li><a title="华为" href="https://www.javalc.com/tags-8.html">华为<span class="tag-count"> (1)</span></a></li>
+<li><a title="鸿蒙OS" href="https://www.javalc.com/tags-9.html">鸿蒙OS<span class="tag-count"> (1)</span></a></li>
+<li><a title="源码" href="https://www.javalc.com/tags-10.html">源码<span class="tag-count"> (1)</span></a></li>
+<li><a title="key" href="https://www.javalc.com/tags-11.html">key<span class="tag-count"> (3)</span></a></li>
+<li><a title="网络资源" href="https://www.javalc.com/tags-12.html">网络资源<span class="tag-count"> (4)</span></a></li>
+<li><a title="VPS" href="https://www.javalc.com/tags-13.html">VPS<span class="tag-count"> (0)</span></a></li>
+<li><a title="uniapp" href="https://www.javalc.com/tags-14.html">uniapp<span class="tag-count"> (1)</span></a></li>
+<li><a title="Vite" href="https://www.javalc.com/tags-15.html">Vite<span class="tag-count"> (1)</span></a></li>
+<li><a title="electron" href="https://www.javalc.com/tags-16.html">electron<span class="tag-count"> (1)</span></a></li>
+<li><a title="vue3" href="https://www.javalc.com/tags-17.html">vue3<span class="tag-count"> (1)</span></a></li>
+<li><a title="Office Online Server" href="https://www.javalc.com/tags-18.html">Office Online Server<span class="tag-count"> (1)</span></a></li>
+<li><a title="在线预览" href="https://www.javalc.com/tags-19.html">在线预览<span class="tag-count"> (1)</span></a></li>
+</ul>
+<div class="clear"></div>
+</div>
+
+ </div></div></div>
+  <div class="main" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+    
+        
+            
+            
+     
+    
+        
+     <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;"><div class="post-item site-box">
+      <h1 class="post-title">windows下编译cef最新版本并支持mp3/mp4</h1>
+      <div class="post-meta"> <span class="post-time"><i class="demo-icon icon-calendar"></i> 发表于2021-06-10</span> <span class="post-category"> <i class="demo-icon icon-folder-empty"></i> 分类： <a href="https://www.javalc.com/category-4.html">技术分享</a> </span> <span class="post-comments-count"> <i class="demo-icon icon-comment-empty"></i> 评论： 32 </span> <span class="post-view-count"><i class="demo-icon icon-eye"></i> 阅读：2662</span> </div>
+      <div id="content" class="post-body"> <p>官方：<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5DFzKaa15jPxqthpqqdlcaf16TOn63TnqLGxsWalspnxMjJYavUmJPOmKarnaiV" rel="nofollow" target="_blank" title="参考地址">参考地址</a></p><p>编译分三大步：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;一、配置必须的环境<br></p><p>&nbsp; &nbsp; 二、下载</p><p>&nbsp; &nbsp; 三、编译</p><p>一、准备工作</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1.Win10系统，必须64位，至少8GB的RAM，我采用win10 64位，16GRAM</p><p>&nbsp;&nbsp;&nbsp;&nbsp;2.比较新的VS,最近免费的社区版（编译不同版本要求不一样，具体看Cef官网帮助，我用的是VS2019），需要安装“C++桌面组件” 和 “MFC和ATL支持”,最好安装在默认路径</p><p>&nbsp;&nbsp;&nbsp;&nbsp;3.Win10 SDK（VS2019中有）</p><p>&nbsp;&nbsp;&nbsp;&nbsp;4.至少200G剩余空间，NTFS文件系统，部分文件超过4G，部分资料显示最少60G，编译结束后发现远超60G</p><p>&nbsp;&nbsp;&nbsp;&nbsp;5.设置系统区域为英语（美国）。（控制面板-区域-管理-更改系统区域设置-英语（美国）），设置完需要重启</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6.创建工作目录，路径不能包含空格及特殊字符。例如f:\cef</p><p>&nbsp;&nbsp;&nbsp;&nbsp;7.下载<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5DW16Gqw5zJj56ipp-iy8SnzqiPmafTaJjM09CjlpOhz8nVk2fGmtTQq5Krp6XS1mXfntE," rel="nofollow" target="_blank" title="编译工具包">编译工具包</a>，解压至工作目录。例如f:\cef\depot_tools</p><p>&nbsp;&nbsp;&nbsp;&nbsp;建议从git仓库获取最新的：<br></p><div class="prism-show-language"><div class="prism-show-language-label" data-language="C">C</div></div><pre class="prism-highlight prism-# prism- language-c prism-line-numbers language-c" data-language="C"><code class="prism-  language-c">git clone https<span class="prism-token prism-punctuation">:</span><span class="prism-token prism-operator">/</span><span class="prism-token prism-operator">/</span>chromium<span class="prism-token prism-punctuation">.</span>googlesource<span class="prism-token prism-punctuation">.</span>com<span class="prism-token prism-operator">/</span>chromium<span class="prism-token prism-operator">/</span>tools<span class="prism-token prism-operator">/</span>depot_tools<span class="prism-token prism-punctuation">.</span>git<span class="prism-line-numbers-rows"><span></span></span></code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;8.下载<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5DFzKaa15jPxqthpqqdlcaf16TOn63TnqLGxsWalspnxMjJYarDrJPOmKarnaiV16bUodRlmdutpNHC1Ztgx63V0tCTrMdiy8qrYaex" rel="nofollow" target="_blank" title="编译脚本">编译脚本</a>至工作目录。例如f:\cef</p><p>&nbsp;&nbsp;&nbsp;&nbsp;9.在工作目录下创建源码目录。例如f:\cef\source</p><p>&nbsp;&nbsp;&nbsp;&nbsp;10.安装ninja,并加添到系统环境变量下载地址:<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5DRzKCiw2LG1qCfm2al2Mpm" rel="nofollow" target="_blank" title="ninja">ninja</a></p><p>&nbsp;&nbsp;&nbsp;&nbsp;11.一个稳定的 VPN 网络可以让你快速下载 CEF 和 Chromium 代码</p><p>二、配置环境变量</p><p>&nbsp; 1.配置depot_tools</p><p>&nbsp;<img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/202106100956074830560.png" alt="image.png"></p><p>2.配置<span style="color: rgba(0, 0, 0, 0.75); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: #FFFFFF;">ninja环境变量</span></p><p><br></p><p><br></p><p>三、配置下载脚本并下载<br></p><ol class=" list-paddingleft-2" style="list-style-type: decimal;"><li><p>新建一个 bat脚本并命名为 git_4430.bat</p></li><li><p>在脚本中写入如下代码</p></li></ol><p>&nbsp; &nbsp;</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"><span class="prism-token prism-keyword">set</span> CEF_USE_GN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> GN_DEFINES<span class="prism-token prism-operator">=</span>is_official_build<span class="prism-token prism-operator">=</span>true proprietary_codecs<span class="prism-token prism-operator">=</span>true ffmpeg_branding<span class="prism-token prism-operator">=</span>Chrome
+<span class="prism-token prism-keyword">set</span> GYP_DEFINES<span class="prism-token prism-operator">=</span>buildtype<span class="prism-token prism-operator">=</span>Official
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_VERSION<span class="prism-token prism-operator">=</span>2019
+<span class="prism-token prism-keyword">set</span> CEF_ARCHIVE_FORMAT<span class="prism-token prism-operator">=</span>tar.bz2
+<span class="prism-token prism-keyword">set</span> GN_ARGUMENTS<span class="prism-token prism-operator">=</span>--ide<span class="prism-token prism-operator">=</span>vs2019 --sln<span class="prism-token prism-operator">=</span>cef --filters<span class="prism-token prism-operator">=</span>//cef/*
+python automate-git.py --download-dir<span class="prism-token prism-operator">=</span>F:\cef\source --depot-tools-dir<span class="prism-token prism-operator">=</span>F:\cef\depot-tools --branch<span class="prism-token prism-operator">=</span>4430 --force-clean --no-build --no-distrib
+pause<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><br></p><p>代理运行(需要管理员)：</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"><span class="prism-token prism-keyword">echo</span> proxy setup <span class="prism-token prism-punctuation">..</span>.
+<span class="prism-token prism-keyword">echo</span> --------------------
+netsh winhttp <span class="prism-token prism-keyword">set</span> proxy 127.0.0.1:10809
+<span class="prism-token prism-keyword">set</span> https_proxy<span class="prism-token prism-operator">=</span>http://127.0.0.1:10809
+<span class="prism-token prism-keyword">set</span> http_proxy<span class="prism-token prism-operator">=</span>http://127.0.0.1:10809
+<span class="prism-token prism-keyword">echo</span> <span class="prism-token prism-function">env</span> setup <span class="prism-token prism-punctuation">..</span>.
+
+<span class="prism-token prism-keyword">set</span> CEF_USE_GN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> GN_DEFINES<span class="prism-token prism-operator">=</span>is_official_build<span class="prism-token prism-operator">=</span>true proprietary_codecs<span class="prism-token prism-operator">=</span>true ffmpeg_branding<span class="prism-token prism-operator">=</span>Chrome
+<span class="prism-token prism-keyword">set</span> GYP_DEFINES<span class="prism-token prism-operator">=</span>buildtype<span class="prism-token prism-operator">=</span>Official
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_VERSION<span class="prism-token prism-operator">=</span>2019
+<span class="prism-token prism-keyword">set</span> CEF_ARCHIVE_FORMAT<span class="prism-token prism-operator">=</span>tar.bz2
+<span class="prism-token prism-keyword">set</span> GN_ARGUMENTS<span class="prism-token prism-operator">=</span>--ide<span class="prism-token prism-operator">=</span>vs2019 --sln<span class="prism-token prism-operator">=</span>cef --filters<span class="prism-token prism-operator">=</span>//cef/*
+python automate-git.py --download-dir<span class="prism-token prism-operator">=</span>F:\cef\source --depot-tools-dir<span class="prism-token prism-operator">=</span>F:\cef\depot-tools --branch<span class="prism-token prism-operator">=</span>4430 --force-clean --no-build --no-distrib
+pause<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>&nbsp; <span style="color: #FF0000;">&nbsp;10809端口要改成自己实际的</span></p><p><span style="color: #FF0000;"><span style="color: #000000;">两个脚本根据实际情况选择其一</span><br></span></p><p><strong style="color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;">GN_DEFINES</strong><span style="background-color: #FFFFFF; color: #444444; font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; font-size: 1.14286rem;">&nbsp;参数介绍：</span></p><ul style="margin-bottom: 1.71429rem; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; list-style-position: outside; list-style-image: initial; line-height: 1.71429; color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);" class=" list-paddingleft-2"><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">ffmpeg_branding</code>&nbsp;和&nbsp;<code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">proprietary_codecs</code>&nbsp;表示开启多媒体编解码支持，但默认仅支持一小部分，后面介绍如何支持更多。</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">is_official_build</code>&nbsp;决定了是否是编译正式版本，指定该参数为 true 基本上都是为了产品发布使用，同时也会在创建解决方案的时候生成带有 sandbox 的解决方案（如 Release_GN_x86_sandbox），而不指定这个参数是没有的。如果你不是为了贡献代码，那默认这个都加上吧。</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">use_jumbo_build</code>&nbsp;官方资料默认指定，表示是否启用试验性的 jumbo 编译，编译过程会加快很多（至少快 1 小时），但是占用 CPU 和内存（尤其是内存）会剧增。</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">is_component_build</code>&nbsp;官方资料默认指定，但我们没有开启，这个参数表示是否启用组件化编译，设置为 true 以后，base、ffmpeg 等等都会被编译为动态库，使用时也是动态链接，编译出来的 cef_sandbox.lib 只有几兆大小，并且你需要复制很多 dll 文件到项目目录下才能运行。</p></li></ul><h3 style="margin: 1.71429rem 0px; padding: 0px; border: 0px; vertical-align: baseline; clear: both; line-height: 1.84615; color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; font-size: 18.2858px;">&nbsp;&nbsp;</strong><strong style="font-size: 16px; margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;">automate-git.py</strong><span style="font-size: 1.14286rem;">&nbsp;参数介绍</span></h3><ul style="margin-bottom: 1.71429rem; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; list-style-position: outside; list-style-image: initial; line-height: 1.71429; color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);" class=" list-paddingleft-2"><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">--branch</code>&nbsp;表示你要下载哪个版本的代码，CEF 每个版本都有固定的分支，你去 CEF 项目页查看分支名称指定即可，这里我们编译 2019年9月份目前最新的版本 3809。</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">--no-build</code>&nbsp;表示只下载代码而不编译，这里只为下载代码，我们还要修改支持多媒体的参数，所以不进行编译</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">--no-distrib</code>&nbsp;不执行打包项目，这里只为下载代码，我们还要修改支持多媒体的参数，所以不进行打包</p></li><li><p><code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">--force-clean</code>&nbsp;如果你曾经执行过这个脚本，可能会出错，则加上这个参数，它执行清理残留文件（你也可以手动在 chromium 源码目录执行 git clean -xdf 来清理目录中的多余内容）。</p></li><li><p>automate-git.py 的其他参数可以手动执行&nbsp;<code style="margin: 0px; padding: 3px 5px; border: 0px; font-size: 0.857143rem; vertical-align: baseline; background-color: rgb(242, 244, 245); font-family: Consolas, Monaco, &quot;Lucida Console&quot;, monospace; line-height: 2;">python automate-git.py --help</code>&nbsp;来查看</p></li></ul><div><div><p>注：</p><ol class=" list-paddingleft-2"><li><p>如果<em>VPN</em>不太稳定，可能会经常中断，造成脚本运行错误，重新运行脚本即可，源码主要有三部分，<em>depot_tools</em>源码<em>cef</em>源码和<em>chromium</em>源码，如果发现相应部分的源码已经同步完成，可以分别使用<em>--no-depot-tools-update, --no-cef-update, --no-chromium-update</em> &nbsp;来不进行相应部分的代码更新。</p></li><li><p>自动构建脚本在下载源码时，并没有进度提示，比如在下载<em>chromium/src</em>目录时时间会非常长，会一直提示<em>still working on src...</em>，请耐心等待。</p></li></ol></div><br></div><p>&nbsp; &nbsp;3.cmd（管理员权限运行）git_4430.bat脚本</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">完整目录结构：
+    f:/ 
+        cef/
+            automate-git.py
+            depot_tools/
+            source/<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>四、修改文件使得CEF支持MP4能力</p><p>&nbsp; &nbsp;修改：<span style="color: #4D4D4D; font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: #FFFFFF;">source\chromium\src\third_party\ffmpeg\chromium\scripts\build_ffmpeg.py&nbsp;文件</span></p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">configure_flags<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-string">'Chrome'</span><span class="prism-token prism-punctuation">]</span>.extend<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">[</span>  
+          <span class="prism-token prism-string">'--enable-decoder=aac,h264,mp3'</span>,  
+          <span class="prism-token prism-string">'--enable-demuxer=aac,mp3,mov'</span>,  
+          <span class="prism-token prism-string">'--enable-parser=aac,h264,mpegaudio'</span>,  
+      <span class="prism-token prism-punctuation">]</span><span class="prism-token prism-punctuation">)</span><span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>改为<span style="color: #4D4D4D; font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: #FFFFFF;"></span><br></p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">configure_flags<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-string">'Chrome'</span><span class="prism-token prism-punctuation">]</span>.extend<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">[</span>  
+          <span class="prism-token prism-string">'--enable-decoder=aac,h264,mp3,mpeg4,amrnb,amrwb,flv'</span>,  
+          <span class="prism-token prism-string">'--enable-demuxer=aac,mp3,mov,avi,amr,flv'</span>,  
+          <span class="prism-token prism-string">'--enable-parser=aac,h264,mpegaudio,mpeg4video,h263'</span>,  
+      <span class="prism-token prism-punctuation">]</span><span class="prism-token prism-punctuation">)</span><span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>分别打开:</p><p>f:\cef\source\chromium\src\third_party\ffmpeg\chromium\config\Chrome\win\ia32\config.h</p><p>f:\cef\source\chromium\src\third_party\ffmpeg\chromium\config\Chrome\win\x64\config.h</p><p>在原有配置宏FFMPEG_CONFIGURATION里增加以下：</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"> --enable-decoder<span class="prism-token prism-operator">=</span>’rv10,rv20,rv30,rv40,cook,h263,h263i,mpeg4,msmpeg4v1,msmpeg4v2,msmpeg4v3,amrnb,amrwb,ac3,flv’
+ --enable-demuxer<span class="prism-token prism-operator">=</span>’rm,mpegvideo,avi,avisynth,h263,aac,amr,ac3,flv,mpegts,mpegtsraw’ 
+ --enable-parser<span class="prism-token prism-operator">=</span>’mpegvideo,rv30,rv40,h263,mpeg4video,ac3’<span class="prism-line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>注：<span style="color: #FF0000;">但在90.6.7中我看到FFMPEG_CONFIGURATION节点是被禁用的</span></p><p><span style="color: #000000;">因在90.6.7中看到FFMPEG_CONFIGURATION是被禁用因此我们使用下面这种方式</span><br></p><p><span style="color: #000000;"><br></span></p><p style="white-space: normal;">分别修改:</p><p style="white-space: normal;">f:\cef\source\chromium\src\third_party\ffmpeg\chromium\config\Chrome\win\ia32\config.h</p><p style="white-space: normal;">f:\cef\source\chromium\src\third_party\ffmpeg\chromium\config\Chrome\win\x64\config.h</p><p style="white-space: normal;">把部分#define 由0改为1</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"><span class="prism-token prism-comment" spellcheck="true">#define CONFIG_FLV_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263I_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEG4_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGVIDEO_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MSMPEG4V1_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MSMPEG4V2_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MSMPEG4V3_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV10_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV20_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV30_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV40_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AC3_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMRNB_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMRWB_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_COOK_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_SIPR_DECODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_FLV_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEG4_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MSMPEG4V2_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MSMPEG4V3_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV10_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV20_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AAC_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AC3_ENCODER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AC3_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_COOK_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEG4VIDEO_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGVIDEO_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV30_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RV40_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_SIPR_PARSER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AC3_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMR_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMRNB_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMRWB_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AVI_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AVISYNTH_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_FLV_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H264_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGTS_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGTSRAW_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGVIDEO_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RM_DEMUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AC3_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AMR_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_AVI_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_FLV_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H263_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_H264_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_MPEGTS_MUXER 1</span>
+<span class="prism-token prism-comment" spellcheck="true">#define CONFIG_RM_MUXER 1</span><span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>因为改的比较多，这里我们通过python的脚本进行帮我们修改</p><p>&nbsp; 1.新建一个mp4_support.txt把上面的内容复制进去</p><p><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/202106101024061658193.png" alt="image.png"></p><p><br></p><p>&nbsp; &nbsp; 2.新建一个update_mp4.py的脚本，内容如下：</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Python">Python</div></div><pre class="prism-highlight prism- prism-line-numbers language-python" data-language="Python"><code class="prism-  language-python"><span class="prism-token prism-comment" spellcheck="true">## 第一参数为上面要修改的#define 的文件路径，第二参数为 F:\cef\source\chromium\src\third_party\ffmpeg\chromium\config\Chrome\win\ia32\config.h</span>
+<span class="prism-token prism-keyword">import</span> sys
+<span class="prism-token prism-keyword">import</span> shutil
+<span class="prism-token prism-keyword">import</span> re
+<span class="prism-token prism-keyword">import</span> os
+
+<span class="prism-token prism-keyword">def</span> <span class="prism-token prism-function">Replace</span><span class="prism-token prism-punctuation">(</span>change<span class="prism-token prism-punctuation">,</span>content<span class="prism-token prism-punctuation">)</span><span class="prism-token prism-punctuation">:</span>
+   str_array <span class="prism-token prism-operator">=</span> re<span class="prism-token prism-punctuation">.</span>findall<span class="prism-token prism-punctuation">(</span>"<span class="prism-token prism-comment" spellcheck="true">#define\s\w+\s",change)</span>
+   str_replace <span class="prism-token prism-operator">=</span>str_array<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-number">0</span><span class="prism-token prism-punctuation">]</span>
+   str_replace<span class="prism-token prism-operator">+=</span><span class="prism-token prism-string">"0"</span>
+   str_dest <span class="prism-token prism-operator">=</span>str_array<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-number">0</span><span class="prism-token prism-punctuation">]</span>
+   str_dest<span class="prism-token prism-operator">+=</span><span class="prism-token prism-string">"1"</span>
+   <span class="prism-token prism-keyword">return</span> content<span class="prism-token prism-punctuation">.</span>replace<span class="prism-token prism-punctuation">(</span>str_replace<span class="prism-token prism-punctuation">,</span>str_dest<span class="prism-token prism-punctuation">)</span>
+
+<span class="prism-token prism-keyword">if</span> len<span class="prism-token prism-punctuation">(</span>sys<span class="prism-token prism-punctuation">.</span>argv<span class="prism-token prism-punctuation">)</span> <span class="prism-token prism-operator">&gt;</span> <span class="prism-token prism-number">2</span> <span class="prism-token prism-punctuation">:</span>
+   src_file_name <span class="prism-token prism-operator">=</span>sys<span class="prism-token prism-punctuation">.</span>argv<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-number">1</span><span class="prism-token prism-punctuation">]</span>
+   dest_file_name<span class="prism-token prism-operator">=</span>sys<span class="prism-token prism-punctuation">.</span>argv<span class="prism-token prism-punctuation">[</span><span class="prism-token prism-number">2</span><span class="prism-token prism-punctuation">]</span>
+<span class="prism-token prism-keyword">else</span><span class="prism-token prism-punctuation">:</span>
+   src_file_name <span class="prism-token prism-operator">=</span>raw_input<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-string">"Please input src file path name:"</span><span class="prism-token prism-punctuation">)</span><span class="prism-token prism-punctuation">.</span>replace<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-string">"\r"</span><span class="prism-token prism-punctuation">,</span><span class="prism-token prism-string">""</span><span class="prism-token prism-punctuation">)</span>
+   dest_file_name <span class="prism-token prism-operator">=</span>raw_input<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-string">"Please input dest file path name:"</span><span class="prism-token prism-punctuation">)</span><span class="prism-token prism-punctuation">.</span>replace<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-string">"\r"</span><span class="prism-token prism-punctuation">,</span><span class="prism-token prism-string">""</span><span class="prism-token prism-punctuation">)</span>
+
+
+file_src_handle <span class="prism-token prism-operator">=</span> open<span class="prism-token prism-punctuation">(</span>src_file_name<span class="prism-token prism-punctuation">,</span><span class="prism-token prism-string">"r"</span><span class="prism-token prism-punctuation">)</span>
+file_src_lines <span class="prism-token prism-operator">=</span> file_src_handle<span class="prism-token prism-punctuation">.</span>readlines<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span>
+file_src_handle<span class="prism-token prism-punctuation">.</span>close<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span>
+file_dest_handle <span class="prism-token prism-operator">=</span> open<span class="prism-token prism-punctuation">(</span>dest_file_name<span class="prism-token prism-punctuation">,</span><span class="prism-token prism-string">"r"</span><span class="prism-token prism-punctuation">)</span>
+dest_file_content <span class="prism-token prism-operator">=</span> file_dest_handle<span class="prism-token prism-punctuation">.</span>read<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span>
+file_dest_handle<span class="prism-token prism-punctuation">.</span>close<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span>
+
+<span class="prism-token prism-keyword">for</span> line <span class="prism-token prism-keyword">in</span> file_src_lines<span class="prism-token prism-punctuation">:</span>
+    dest_file_content <span class="prism-token prism-operator">=</span> Replace<span class="prism-token prism-punctuation">(</span>line<span class="prism-token prism-punctuation">,</span>dest_file_content<span class="prism-token prism-punctuation">)</span>
+
+write_file_path <span class="prism-token prism-operator">=</span> os<span class="prism-token prism-punctuation">.</span>getcwd<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span><span class="prism-token prism-operator">+</span><span class="prism-token prism-string">"\\"</span><span class="prism-token prism-operator">+</span> os<span class="prism-token prism-punctuation">.</span>path<span class="prism-token prism-punctuation">.</span>basename<span class="prism-token prism-punctuation">(</span>dest_file_name<span class="prism-token prism-punctuation">)</span>
+ready_copy <span class="prism-token prism-operator">=</span> open<span class="prism-token prism-punctuation">(</span>write_file_path<span class="prism-token prism-punctuation">,</span><span class="prism-token prism-string">"w"</span><span class="prism-token prism-punctuation">)</span>
+ready_copy<span class="prism-token prism-punctuation">.</span>write<span class="prism-token prism-punctuation">(</span>dest_file_content<span class="prism-token prism-punctuation">)</span>
+ready_copy<span class="prism-token prism-punctuation">.</span>close<span class="prism-token prism-punctuation">(</span><span class="prism-token prism-punctuation">)</span>
+
+shutil<span class="prism-token prism-punctuation">.</span>copy<span class="prism-token prism-punctuation">(</span>write_file_path<span class="prism-token prism-punctuation">,</span>dest_file_name<span class="prism-token prism-punctuation">)</span>
+os<span class="prism-token prism-punctuation">.</span>remove<span class="prism-token prism-punctuation">(</span>write_file_path<span class="prism-token prism-punctuation">)</span>
+<span class="prism-token prism-keyword">print</span><span class="prism-token prism-punctuation">(</span><span class="prism-token prism-string">"Support mp4 Success!!!"</span><span class="prism-token prism-punctuation">)</span><span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>3.新建一个bat&nbsp;脚本用于启动我们的update_mp4.py脚本(也可以直接通过cmd进行启动) bat脚本内容如下:</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">python update_mp4.py F:/cef/script/mp4_support.txt F:/cef/source/chromium/src/third_party/ffmpeg/chromium/config/Chrome/win/ia32/config.h
+pause<span class="prism-line-numbers-rows"><span></span><span></span></span></code></pre><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">python update_mp4.py F:/cef/script/mp4_support.txt F:/cef/source/chromium/src/third_party/ffmpeg/chromium/config/Chrome/win/x64/config.h
+pause<span class="prism-line-numbers-rows"><span></span><span></span></span></code></pre><p>4.分别执行两个脚本</p><p>目录如下：</p><p><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/202106101030344487533.png" alt="image.png"></p><p><br></p><p>五、创建编译脚本</p><p>&nbsp;新建两个脚本分别对应x86、x64&nbsp;<br></p><p>&nbsp; build_x64_4430.bat文件内容如下：</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"><span class="prism-token prism-keyword">set</span> CEF_USE_GN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> GN_DEFINES<span class="prism-token prism-operator">=</span>is_official_build<span class="prism-token prism-operator">=</span>true proprietary_codecs<span class="prism-token prism-operator">=</span>true ffmpeg_branding<span class="prism-token prism-operator">=</span>Chrome
+<span class="prism-token prism-keyword">set</span> GYP_DEFINES<span class="prism-token prism-operator">=</span>buildtype<span class="prism-token prism-operator">=</span>Official
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_VERSION<span class="prism-token prism-operator">=</span>2019
+<span class="prism-token prism-keyword">set</span> CEF_ARCHIVE_FORMAT<span class="prism-token prism-operator">=</span>tar.bz2
+<span class="prism-token prism-keyword">set</span> DEPOT_TOOLS_WIN_TOOLCHAIN<span class="prism-token prism-operator">=</span>0
+<span class="prism-token prism-keyword">set</span> GYP_GENERATORS<span class="prism-token prism-operator">=</span>ninja,msvs-ninja
+<span class="prism-token prism-keyword">set</span> GN_ARGUMENTS<span class="prism-token prism-operator">=</span>--ide<span class="prism-token prism-operator">=</span>vs2019 --sln<span class="prism-token prism-operator">=</span>cef --filters<span class="prism-token prism-operator">=</span>//cef/*
+<span class="prism-token prism-keyword">set</span> WIN_CUSTOM_TOOLCHAIN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> CEF_VCVARS<span class="prism-token prism-operator">=</span>none
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_OVERRIDE_PATH<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise
+<span class="prism-token prism-keyword">set</span> SDK_ROOT<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10
+<span class="prism-token prism-keyword">set</span> PATH<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\bin\10.0.19041.0\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\bin\HostX64\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.13.26020\x64\Microsoft.VC141.CRT<span class="prism-token prism-punctuation">;</span>%PATH%
+<span class="prism-token prism-keyword">set</span> LIB<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Lib\10.0.19041.0\um\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Lib\10.0.19041.0\ucrt\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\lib\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\atlmfc\lib\x64<span class="prism-token prism-punctuation">;</span>%LIB%
+<span class="prism-token prism-keyword">set</span> INCLUDE<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\um<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\ucrt<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\shared<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\include<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\atlmfc\include<span class="prism-token prism-punctuation">;</span>%INCLUDE%
+<span class="prism-token prism-keyword">set</span> VS_CRT_ROOT<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\crt\src\vcruntim
+
+python automate-git.py --download-dir<span class="prism-token prism-operator">=</span>f:\cef\source --depot-tools-dir<span class="prism-token prism-operator">=</span>F:\cef\depot-tools --branch<span class="prism-token prism-operator">=</span>4430 --x64-build --no-update --build-log-file --verbose-build --force-distrib --force-build --no-debug-build
+pause<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>build_x86_4430.bat文件内容如下：</p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash"><span class="prism-token prism-keyword">set</span> CEF_USE_GN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> GN_DEFINES<span class="prism-token prism-operator">=</span>is_official_build<span class="prism-token prism-operator">=</span>true proprietary_codecs<span class="prism-token prism-operator">=</span>true ffmpeg_branding<span class="prism-token prism-operator">=</span>Chrome
+<span class="prism-token prism-keyword">set</span> GYP_DEFINES<span class="prism-token prism-operator">=</span>buildtype<span class="prism-token prism-operator">=</span>Official
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_VERSION<span class="prism-token prism-operator">=</span>2019
+<span class="prism-token prism-keyword">set</span> CEF_ARCHIVE_FORMAT<span class="prism-token prism-operator">=</span>tar.bz2
+<span class="prism-token prism-keyword">set</span> DEPOT_TOOLS_WIN_TOOLCHAIN<span class="prism-token prism-operator">=</span>0
+<span class="prism-token prism-keyword">set</span> GYP_GENERATORS<span class="prism-token prism-operator">=</span>ninja,msvs-ninja
+<span class="prism-token prism-keyword">set</span> GN_ARGUMENTS<span class="prism-token prism-operator">=</span>--ide<span class="prism-token prism-operator">=</span>vs2019 --sln<span class="prism-token prism-operator">=</span>cef --filters<span class="prism-token prism-operator">=</span>//cef/*
+<span class="prism-token prism-keyword">set</span> WIN_CUSTOM_TOOLCHAIN<span class="prism-token prism-operator">=</span>1
+<span class="prism-token prism-keyword">set</span> CEF_VCVARS<span class="prism-token prism-operator">=</span>none
+<span class="prism-token prism-keyword">set</span> GYP_MSVS_OVERRIDE_PATH<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise
+<span class="prism-token prism-keyword">set</span> SDK_ROOT<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10
+<span class="prism-token prism-keyword">set</span> INCLUDE<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\um<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\ucrt<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Include\10.0.19041.0\shared<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\include<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\atlmfc\include<span class="prism-token prism-punctuation">;</span>%INCLUDE%
+<span class="prism-token prism-keyword">set</span> PATH<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\bin\10.0.19041.0\x86<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\bin\HostX64\x86<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\bin\HostX64\x64<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.29.30037\x64\Microsoft.VC141.CRT<span class="prism-token prism-punctuation">;</span>%PATH%
+<span class="prism-token prism-keyword">set</span> LIB<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Lib\10.0.19041.0\um\x86<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Windows Kits\10\Lib\10.0.19041.0\ucrt\x86<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\lib\x86<span class="prism-token prism-punctuation">;</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\atlmfc\lib\x86<span class="prism-token prism-punctuation">;</span>%LIB%
+<span class="prism-token prism-keyword">set</span> VS_CRT_ROOT<span class="prism-token prism-operator">=</span>C:\Program Files <span class="prism-token prism-punctuation">(</span>x86<span class="prism-token prism-punctuation">)</span>\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\crt\src\vcruntim
+
+python automate-git.py --download-dir<span class="prism-token prism-operator">=</span>f:\cef\source --depot-tools-dir<span class="prism-token prism-operator">=</span>F:\cef\depot-tools --branch<span class="prism-token prism-operator">=</span>4430 --no-update --build-log-file --verbose-build --force-distrib --force-build --no-debug-build
+pause<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>注:<span style="color: #FF0000;">根据自己的VS版本、路径，Win10 SDK版本、路径进行对应更改</span></p><p><br></p><p>备注：bat中的选项可以有：</p><p><br></p><p>--download-dir 源码下载目录</p><p>--depot-tools-dir 工具包目录</p><p>--branch 源码分支(默认trunk主分支)</p><p>--checkout 指定patch版本（默认最近提交)</p><p>--no-build 下载完不自动开始编译（我们需要修改编译配置)</p><p>--no-update 确定源码下载完毕仅重新编译时使用</p><p>--force-build 强制编译（发现在有成功编译的时候再编译不会执行，可以加上这个</p><p>--no-debug-build 只编译release版本</p><p>--no-release-build 只编译debug版本</p><p>六、执行对应该环境的脚本进入漫长的等待</p><p>七.编译完成</p><p>输出目录为source\chromium\src\out\Release_GN_x86 和 source\chromium\src\cef\binary_distrib，Release_GN_x86下有cefclient.exe可以测试，binary_distrib下有cef_binary_90.6.7+g19ba721+chromium-90.0.4430.212_windows32</p><p>通过cmd&nbsp;运行cefclient.exe -url=<span style="color: #4D4D4D; font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: #FFFFFF;"><a href="https://www.javalc.com/child_ccc888?url=zNXVpmuVZ8nX0J5t1prX1WWWpqU," rel="nofollow" _src="http://html5test.com">http://html5test.com</a>&nbsp;<span style="color: #333333; font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun; font-size: 14px; white-space: pre-wrap; background-color: #FFFFFF;">-single-process &nbsp;结果如下：</span></span></p><p><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/202106101106166664636.png" alt="image.png"></p><div class="prism-show-language"><div class="prism-show-language-label" data-language="Bash">Bash</div></div><pre class="prism-highlight prism- prism-line-numbers language-bash" data-language="Bash"><code class="prism-  language-bash">automate-git.py 参数
+
+Usage: automate-git.py <span class="prism-token prism-punctuation">[</span>options<span class="prism-token prism-punctuation">]</span>
+
+ This utility implements automation <span class="prism-token prism-keyword">for</span> the download, update, build and
+distribution of CEF.
+
+Options:
+  -h, --help            show this <span class="prism-token prism-function">help</span> message and <span class="prism-token prism-keyword">exit</span>
+  --download-dir<span class="prism-token prism-operator">=</span>DIR    Download directory with no spaces <span class="prism-token prism-punctuation">[</span>required<span class="prism-token prism-punctuation">]</span>.
+  --depot-tools-dir<span class="prism-token prism-operator">=</span>DIR
+                        Download directory <span class="prism-token prism-keyword">for</span> depot_tools.
+  --depot-tools-archive<span class="prism-token prism-operator">=</span>DEPOTTOOLSARCHIVE
+                        Zip archive <span class="prism-token prism-function">file</span> that contains a single top-level
+                        depot_tools directory.
+  --branch<span class="prism-token prism-operator">=</span>BRANCH       Branch of CEF to build <span class="prism-token prism-punctuation">(</span>master, 3987, <span class="prism-token prism-punctuation">..</span>.<span class="prism-token prism-punctuation">)</span>. This will
+                        be used to name the CEF download directory and to
+                        identify the correct URL <span class="prism-token prism-keyword">if</span> --url is not specified.
+                        The default value is master.
+  --url<span class="prism-token prism-operator">=</span>URL             CEF download URL. If not specified the default URL
+                        will be used.
+  --chromium-url<span class="prism-token prism-operator">=</span>CHROMIUMURL
+                        Chromium download URL. If not specified the default
+                        URL will be used.
+  --checkout<span class="prism-token prism-operator">=</span>CHECKOUT   Version of CEF to checkout. If not specified the <span class="prism-token prism-function">most</span>
+                        recent remote version of the branch will be used.
+  --chromium-checkout<span class="prism-token prism-operator">=</span>CHROMIUMCHECKOUT
+                        Version of Chromium to checkout <span class="prism-token prism-punctuation">(</span>Git branch/hash/tag<span class="prism-token prism-punctuation">)</span>.
+                        This overrides the value specified by CEF <span class="prism-token prism-keyword">in</span>
+                        CHROMIUM_BUILD_COMPATIBILITY.txt.
+  --chromium-channel<span class="prism-token prism-operator">=</span>CHROMIUMCHANNEL
+                        Chromium channel to check out <span class="prism-token prism-punctuation">(</span>canary, dev, beta or
+                        stable<span class="prism-token prism-punctuation">)</span>. This overrides the value specified by CEF <span class="prism-token prism-keyword">in</span>
+                        CHROMIUM_BUILD_COMPATIBILITY.txt.
+  --chromium-channel-distance<span class="prism-token prism-operator">=</span>CHROMIUMCHANNELDISTANCE
+                        The target number of commits to step <span class="prism-token prism-keyword">in</span> the channel,
+                        or 0 to use the newest channel version. Used <span class="prism-token prism-keyword">in</span>
+                        combination with --chromium-channel.
+  --force-config        Force creation of a new gclient config file.
+  --force-clean         Force a clean checkout of Chromium and CEF. This will
+                        trigger a new update, build and distribution.
+  --force-clean-deps    Force a clean checkout of Chromium dependencies. Used
+                        <span class="prism-token prism-keyword">in</span> combination with --force-clean.
+  --dry-run             Output commands without executing them.
+  --dry-run-platform<span class="prism-token prism-operator">=</span>DRYRUNPLATFORM
+                        Simulate a dry run on the specified platform <span class="prism-token prism-punctuation">(</span>windows,
+                        mac, linux<span class="prism-token prism-punctuation">)</span>. Must be used <span class="prism-token prism-keyword">in</span> combination with the
+                        --dry-run flag.
+  --force-update        Force a Chromium and CEF update. This will trigger a
+                        new build and distribution.
+  --no-update           Do not update Chromium or CEF. Pass --force-build or
+                        --force-distrib <span class="prism-token prism-keyword">if</span> you desire a new build or
+                        distribution.
+  --no-cef-update       Do not update CEF. Pass --force-build or --force-
+                        distrib <span class="prism-token prism-keyword">if</span> you desire a new build or distribution.
+  --force-cef-update    Force a CEF update. This will cause local changes <span class="prism-token prism-keyword">in</span>
+                        the CEF checkout to be discarded and patch files to be
+                        reapplied.
+  --no-chromium-update  Do not update Chromium.
+  --no-depot-tools-update
+                        Do not update depot_tools.
+  --fast-update         Update existing Chromium/CEF checkouts <span class="prism-token prism-keyword">for</span> fast
+                        incremental builds by attempting to minimize the
+                        number of modified files. The update will fail <span class="prism-token prism-keyword">if</span>
+                        there are unstaged CEF changes or <span class="prism-token prism-keyword">if</span> Chromium changes
+                        are not included <span class="prism-token prism-keyword">in</span> a patch file.
+  --force-patch-update  Force update of patch files.
+  --resave              Resave patch files.
+  --log-chromium-changes
+                        Create a log of the Chromium changes.
+  --force-build         Force CEF debug and release builds. This builds
+                        <span class="prism-token prism-punctuation">[</span>build-target<span class="prism-token prism-punctuation">]</span> on all platforms and chrome_sandbox on
+                        Linux.
+  --no-build            Do not build CEF.
+  --build-target<span class="prism-token prism-operator">=</span>BUILDTARGET
+                        Target name<span class="prism-token prism-punctuation">(</span>s<span class="prism-token prism-punctuation">)</span> to build <span class="prism-token prism-punctuation">(</span>defaults to <span class="prism-token prism-string">"cefclient"</span><span class="prism-token prism-punctuation">)</span>.
+  --build-tests         Also build the <span class="prism-token prism-function">test</span> target specified via --test-
+                        target.
+  --no-debug-build      Don<span class="prism-token prism-string">'t perform the CEF debug build.
+  --no-release-build    Don'</span>t perform the CEF release build.
+  --verbose-build       Show all <span class="prism-token prism-function">command</span> lines <span class="prism-token prism-keyword">while</span> building.
+  --build-failure-limit<span class="prism-token prism-operator">=</span>BUILDFAILURELIMIT
+                        Keep going <span class="prism-token prism-keyword">until</span> N <span class="prism-token prism-function">jobs</span> fail.
+  --build-log-file      Write build logs to file. The <span class="prism-token prism-function">file</span> will be named
+                        <span class="prism-token prism-string">"build-[branch]-[debug|release].log"</span> <span class="prism-token prism-keyword">in</span> the download
+                        directory.
+  --x64-build           Create a 64-bit build.
+  --arm-build           Create an ARM build.
+  --arm64-build         Create an ARM64 build.
+  --run-tests           Run the ceftests target.
+  --no-debug-tests      Don<span class="prism-token prism-string">'t run debug build tests.
+  --no-release-tests    Don'</span>t run release build tests.
+  --test-target<span class="prism-token prism-operator">=</span>TESTTARGET
+                        Test target name to build <span class="prism-token prism-punctuation">(</span>defaults to <span class="prism-token prism-string">"ceftests"</span><span class="prism-token prism-punctuation">)</span>.
+  --test-prefix<span class="prism-token prism-operator">=</span>TESTPREFIX
+                        Prefix <span class="prism-token prism-keyword">for</span> running the <span class="prism-token prism-function">test</span> executable <span class="prism-token prism-punctuation">(</span>e.g. <span class="prism-token prism-variable"><span class="prism-token prism-variable">`</span>xvfb-
+                        run<span class="prism-token prism-variable">`</span></span> on Linux<span class="prism-token prism-punctuation">)</span>.
+  --test-args<span class="prism-token prism-operator">=</span>TESTARGS  Arguments that will be passed to the <span class="prism-token prism-function">test</span> executable.
+  --force-distrib       Force creation of a CEF binary distribution.
+  --no-distrib          Don<span class="prism-token prism-string">'t create a CEF binary distribution.
+  --minimal-distrib     Create a minimal CEF binary distribution.
+  --minimal-distrib-only
+                        Create a minimal CEF binary distribution only.
+  --client-distrib      Create a client CEF binary distribution.
+  --client-distrib-only
+                        Create a client CEF binary distribution only.
+  --sandbox-distrib     Create a cef_sandbox static library distribution.
+  --sandbox-distrib-only
+                        Create a cef_sandbox static library distribution only.
+  --no-distrib-docs     Don'</span>t create CEF documentation.
+  --no-distrib-archive  Don't create archives <span class="prism-token prism-keyword">for</span> output directories.
+  --clean-artifacts     Clean the artifacts output directory.
+  --distrib-subdir<span class="prism-token prism-operator">=</span>DISTRIBSUBDIR
+                        CEF distrib <span class="prism-token prism-function">dir</span> name, child of
+                        chromium/src/cef/binary_distrib
+  --distrib-subdir-suffix<span class="prism-token prism-operator">=</span>DISTRIBSUBDIRSUFFIX
+                        CEF distrib <span class="prism-token prism-function">dir</span> name suffix, child of
+                        chromium/src/cef/binary_distrib<span class="prism-line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><br></p><p>参考地址：<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5Da2qlmz67H0JuYZaab2pGa02TNl6bNrpbLxpCZodZnk5qbZmbKqdHN" rel="nofollow" target="_blank" title="参考地址">参考地址</a>、<a href="https://www.javalc.com/child_ccc888?url=zNXVpqSgZ5DFz6GfkJjXxaVhpZ2qlcWYzpnWlWuYa2ibmJJvYMeq1czGnp2RmcnVmJyjq2WdnGyVbplncQ,," rel="nofollow" target="_blank" title="参考地址">参考地址</a></p> </div>
+       </div><div class="donate inner-box">
+      <p class="donate-title"></p>
+      <p>
+        <button class="donate-btn" onclick="dashangToggle()">赞赏</button>
+      </p>
+    </div><div class="post-copyright inner-box">
+      <blockquote>
+        <p><strong>本文作者：</strong>admin</p>
+        <p><strong>本文链接：</strong><a href="https://www.javalc.com/post/66.html">https://www.javalc.com/post/66.html</a></p>
+        <p><strong>版权声明：</strong>本篇文章于2021-06-10，由<a href="https://www.javalc.com/author-1.html">admin</a>发表，转载请注明出处：<a href="https://www.javalc.com/">分享你我</a>。如有疑问，请联系我们</p>
+      </blockquote>
+    </div><div class="pre-next-post inner-box">  <a class="pre-post" href="https://www.javalc.com/post/65.html"> <small>.net Cron表达式转时间格式</small> </a>        <a class="next-post" href="https://www.javalc.com/post/67.html"> <small>.net 多线程下载(已经测试通过)</small> </a>       <div class="clear"></div>
+    </div><div id="comments" class="post-comments site-box"> 
+<div class="comment-title"> <span>32 条评论</span> </div>
+<label id="AjaxCommentBegin"></label>
+<!--评论输出-->
+<div>   
+<ul class="msg" id="cmt21">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">aaron</a></span><small>&nbsp;&nbsp;2021-06-20&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;21&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">你好站长，可否把编译版本分享一份给我，感谢~最好加上flv，嘻嘻！下载源码太辛苦了<label id="AjaxComment21"></label>
+<ul class="msg" id="cmt22">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-06-20&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;22&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">把你的邮箱留下，我把已经编译好的版本发给你<label id="AjaxComment22"></label>	</li>
+</ul>
+<ul class="msg" id="cmt23">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-06-20&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;23&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">大部分播放格式需要Flash插件的支持<label id="AjaxComment23"></label>
+<ul class="msg" id="cmt24">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">aaron</a></span><small>&nbsp;&nbsp;2021-06-20&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;24&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">66327893@qq.com，感谢，我是32版本，你看呢？有加你微信，留言，好像没回<br>我看有人在3239版本上这样加个配置就好<br> configure_flags['Chrome'].extend([  <br>          '--enable-decoder=aac,h264,mp3,mpeg4,amrnb,amrwb,flv',  <br>          '--enable-demuxer=aac,mp3,mov,avi,amr,flv',  <br>          '--enable-parser=aac,h264,mpegaudio,mpeg4video,h263',  <br>      ])<label id="AjaxComment24"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt25">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">liduqun</a></span><small>&nbsp;&nbsp;2021-07-21&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;25&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">您好！可否把编译版本分享一份给我，感谢！<br>邮箱：liduqun@qq.com<br>建议做一个百度网盘分享链接<label id="AjaxComment25"></label>
+<ul class="msg" id="cmt26">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-07-21&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;26&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">阿里云盘:https://www.aliyundrive.com/s/DEgBJAZ3aQz<br>百度云盘:链接：https://pan.baidu.com/s/1P4YJsi24Uw45u9gZeUA35g 提取码：5555<label id="AjaxComment26"></label>
+<ul class="msg" id="cmt34">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">loger</a></span><small>&nbsp;&nbsp;2021-08-23&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;34&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">弱弱地问一句   编译打包完后怎么使用？?<label id="AjaxComment34"></label>
+<ul class="msg" id="cmt39">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-08-24&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;39&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">已经放出。上面百度云盘地址<label id="AjaxComment39"></label>	</li>
+</ul>	</li>
+</ul>
+<ul class="msg" id="cmt35">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">loger</a></span><small>&nbsp;&nbsp;2021-08-23&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;35&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">直接把Release文件夹里面的文件替换到项目吗？邮箱是正确的，麻烦大佬指导一二<label id="AjaxComment35"></label>
+<ul class="msg" id="cmt36">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-08-23&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;36&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">复制Release目录下libcef.dll文件替换项目生成的libcef.dll文件就可以播放MP4、其它格式还需要打开flash<label id="AjaxComment36"></label>	</li>
+</ul>
+<ul class="msg" id="cmt37">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">loger</a></span><small>&nbsp;&nbsp;2021-08-23&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;37&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">大佬手上有64位的吗？今天编译失败两次了<label id="AjaxComment37"></label>	</li>
+</ul>
+<ul class="msg" id="cmt38">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-08-24&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;38&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">已经放出<label id="AjaxComment38"></label>	</li>
+</ul>
+<ul class="msg" id="cmt40">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">loger</a></span><small>&nbsp;&nbsp;2021-08-24&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;40&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">感谢大佬 666<label id="AjaxComment40"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt27">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">Jackie</a></span><small>&nbsp;&nbsp;2021-07-26&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;27&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">您好，请问有没有64位版的，感谢！<label id="AjaxComment27"></label>
+<ul class="msg" id="cmt28">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-07-27&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;28&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">90之后的版本好像不需要区分x86和x64。他能直接使用AnyCPU进行编译<label id="AjaxComment28"></label>
+<ul class="msg" id="cmt29">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">Jackie</a></span><small>&nbsp;&nbsp;2021-07-28&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;29&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">那些依赖库好像都是32位的<label id="AjaxComment29"></label>
+<ul class="msg" id="cmt30">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-07-28&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;30&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">那你可以配置X64进行编译。<label id="AjaxComment30"></label>	</li>
+</ul>
+<ul class="msg" id="cmt31">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-07-28&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;31&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">前面有一个bat是x64的。实际上x86是可以在x64平台运行但是反过来就不行<label id="AjaxComment31"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt32">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">Jackie</a></span><small>&nbsp;&nbsp;2021-07-31&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;32&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">可不可以帮我们编译一个64位版的，后续我们会提供一些技术分享费用表示感谢，方便加一下qq，多谢！<label id="AjaxComment32"></label>
+<ul class="msg" id="cmt33">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-08-03&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;33&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">你这边可以按教程进行编译。我可以提供免费的技术支持<label id="AjaxComment33"></label>	</li>
+</ul>
+<ul class="msg" id="cmt41">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-08-24&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;41&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">已经在百度云放出x64的版本<label id="AjaxComment41"></label>
+<ul class="msg" id="cmt42">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">Jackie</a></span><small>&nbsp;&nbsp;2021-08-26&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;42&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">多谢！<label id="AjaxComment42"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt43">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">啊喔呃</a></span><small>&nbsp;&nbsp;2021-09-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;43&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">站长您好，请问编译后支持在H5页面预览paf吗?按照您的方法可以播放mp4了但是不能预览pdf了<label id="AjaxComment43"></label>
+<ul class="msg" id="cmt44">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-09-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;44&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">您好！你是指PAF还是PDF？PDF直接指定路径加载可以显示，如果在WEB页面中使用你可能需要配合PDF.js使用或者尝试在新的窗口直接加载PDF文件路径进行预览。谢谢<label id="AjaxComment44"></label>
+<ul class="msg" id="cmt45">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">啊喔呃</a></span><small>&nbsp;&nbsp;2021-09-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;45&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">您好，是H5页面内浏览PDF文件，没有编译支持mp4之前不使用pdf.js就可以浏览pdf，但是编译后就不能在H5页面内浏览PDF文件，不通过H5页面，新窗口直接加载PDF文件路径（http：//*.pdf）也不可以<label id="AjaxComment45"></label>
+<ul class="msg" id="cmt46">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-09-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;46&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">您好！请你确保路径没错。带有特殊字符的进行"UrlEncode编码"。如：file:///E:/【统编版】《猫》PPT课件-四年级-下册第13课.pdf <br>编码后:file:///E:/%E3%80%90%E7%BB%9F%E7%BC%96%E7%89%88%E3%80%91%E3%80%8A%E7%8C%AB%E3%80%8BPPT%E8%AF%BE%E4%BB%B6-%E5%9B%9B%E5%B9%B4%E7%BA%A7-%E4%B8%8B%E5%86%8C%E7%AC%AC13%E8%AF%BE.pdf<label id="AjaxComment46"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt47">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">霸剑但君临</a></span><small>&nbsp;&nbsp;2021-11-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;47&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">最后一步不应该是运行cef_create_projects.bat吗？<label id="AjaxComment47"></label>
+<ul class="msg" id="cmt49">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2021-11-29&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;49&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">那是生成sln解决方案<label id="AjaxComment49"></label>
+<ul class="msg" id="cmt50">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">霸剑但君临</a></span><small>&nbsp;&nbsp;2021-11-30&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;50&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">大佬，可以将你编译好的版本发一份给我吗？谢谢，支持MP4模块的版本，有32和64位的Debug和Release版本，非常感谢！<br>我的邮箱:258049189@qq.com<label id="AjaxComment50"></label>	</li>
+</ul>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt51">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">David</a></span><small>&nbsp;&nbsp;2022-03-25&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;51&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">感谢楼主的分享，太详细了。<br>楼主有空可以发布一下更新的版本吗？ 目前 cefsharp 是 99.2.12<br>计算机硬件达不到要求，自己折腾怕是无法最终编译出需要的 dll 文件<br>感谢感谢！<label id="AjaxComment51"></label>
+<ul class="msg" id="cmt52">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">admin</a></span><small>&nbsp;&nbsp;2022-04-06&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;52&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">等100出来再编译吧，一百占用内存低，cpu占用率也低<label id="AjaxComment52"></label>	</li>
+</ul>	</li>
+</ul>    
+<ul class="msg" id="cmt53">
+	<li class="msgname"><img class="avatar" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/0.png" alt="" width="32"><span class="commentname"><a href="https://www.javalc.com/post/66.html" rel="nofollow" target="_blank">lwinhong</a></span><small>&nbsp;&nbsp;2022-05-27&nbsp;&nbsp;<span class="revertcomment"><a href="https://www.javalc.com/post/66.html#comment" onclick="zbp.comment.reply(&#39;53&#39;)">回复</a></span></small></li>
+	<li class="msgarticle">下载源码进程中断，就要重来，一直没成功！ 有办法断点续传吗<label id="AjaxComment53"></label>	</li>
+</ul>   </div>
+<!--评论框--> 
+
+<div id="divCommentPost" class="comment-send">
+  <div class="textarea-container">
+    <div class="input-div">
+      <h3>发表评论</h3>
+    </div>
+    <form id="frmSumbit" target="_self" method="post" action="https://www.javalc.com/zb_system/cmd.php?act=cmt&amp;postid=66&amp;key=de551dbb318bc11bd4d596583f1a12af" class="row gtr-uniform">
+      <input type="hidden" name="inpId" id="inpId" value="66">
+      <input type="hidden" name="inpRevID" id="inpRevID" value="0">
+            <div class="input-div">
+        <label>名字：</label>
+        <input type="text" name="inpName" id="inpName" value="">
+      </div>
+      <div class="input-div">
+        <label>邮箱：</label>
+        <input type="text" name="inpEmail" id="inpEmail" value="">
+      </div>
+      <div class="input-div">
+        <label>网站：</label>
+        <input type="text" name="inpHomePage" id="inpHomePage" value="">
+      </div>
+                  <textarea name="txaArticle" id="txaArticle" placeholder="评论内容" rows="6" class="ipt-txt"></textarea>
+      <input name="sumbit" type="submit" tabindex="6" value="发表评论" onclick="return zbp.comment.post()" class="comment-submit">
+      <a class="cancel" rel="nofollow" id="cancel-reply" href="https://www.javalc.com/post/66.html#divCommentPost" style="display:none;"><small>取消回复</small></a>
+    </form>
+  </div>
+  <div class="clear"></div>
+</div> 
+<!--评论翻页条输出-->
+<div class="pagebar">
+  <ul class="pages">
+    
+   </ul>
+</div>
+<label id="AjaxCommentEnd"></label>
+  </div></div></div>
+</div>
+      <div class="hide_box"></div>
+      <div class="shang_box"> <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/close.png" alt="取消"></a>
+        <div class="shang_payimg"> <img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/20200912142823159989210315946.png" alt="扫码支持" title="扫一扫"> <img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/20200912142729159989204995789.jpg" style="display: none;"> </div>
+        <div class="shang_payselect">
+          <div class="pay_item checked" data-id="https://www.javalc.com/zb_users/upload/2020/09/20200912142823159989210315946.png"> <span class="radiobox"></span> <span class="pay_logo"><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/alipay.svg" alt="支付宝"></span> </div>
+          <div class="pay_item" data-id="https://www.javalc.com/zb_users/upload/2020/09/20200912142729159989204995789.jpg"> <span class="radiobox"></span> <span class="pay_logo"><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/wechat.svg" alt="微信支付"></span> </div>
+        </div>
+      </div>
+		<script type="text/javascript">
+		$(function(){
+			$(".pay_item").click(function(){
+				$(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+				var dataid=$(this).attr('data-id');
+				$(".shang_payimg img").attr("src",dataid);
+			});
+		});
+		function dashangToggle(){
+			$(".hide_box").fadeToggle();
+			$(".shang_box").fadeToggle();
+		}
+		</script> 
+
+<div class="footer-box"><div class="footer"><div class="copyright"><span>Copyright © 2020分享你我-版权所有<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18111754号</a><br><div style="width:300px;margin:0 auto; padding:20px 0;"><img src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/baian.png"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602008530" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://www.javalc.com/post/66.html" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44010602008530号</p></a>		 	</div></span></div></div></div><div><span id="go-to-top" class="active"></span></div><a class="setnight" href="javascript:switchNightMode()" target="_self" title="关灯"></a> 
+</div>
+
+<script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})()</script>
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/script.php"></script>
+<script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/main.js.下载"></script>
+<div class="fademask"></div>
+<div class="fademask1"></div>
+ <script src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/theia-sticky-sidebar.min.js.下载"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('.main, .sidebar').theiaStickySidebar({
+      additionalMarginTop: 30
+    });
+  });
+</script>
+
+<style>#navbar-item-lrlogout{display:none;}#lr_mainbar .lr_mbg,.lr_arrow::after{background:#000000;}.lr_btn_lg{background-color:#0886A1;}.lr_btn_rg{background-color:#81AA05;}</style>	<div id="lr_mform">	<dl class="lr_login">		<dt>登录</dt>		<dd>			<i class="lr-icon icon-lr-nickname1"></i>			<input type="text" name="UserName" class="lr_int">			<div class="tip">用户名</div>		</dd>		<dd>			<i class="lr-icon icon-lr-password1"></i>			<input type="password" name="PassWord" class="lr_int">			<div class="tip">密码</div>		</dd>		<dd class="lr_code"><i class="lr-icon icon-lr-safe1"></i><input type="text" name="Vcode" maxlength="5" class="lr_int"><img class="verfiycode" title="点击切换" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/c_validcode.php"><div class="tip">验证码</div></dd>		<dd class="lr_more">			<div class="lr_l"><input type="checkbox" id="Remember" name="Remember" value="7" class="lr_chk" checked="checked"><label for="Remember">7天内自动登录</label></div><div class="lr_r"><a href="javascript:;" class="lr_to_find" target="_self">忘记密码</a><a href="javascript:;" class="lr_to_reg" target="_self">注册</a></div>		</dd>		<dd class="lr_act"><button type="button" class="lr_post">登录</button><div class="lr_manual"><span>若未跳转，可<em>点击这里</em>刷新重试</span></div></dd>			<dd class="lr_btn_close" title="关闭"><i class="lr-icon icon-lr-close"></i></dd><dd class="lr_tips"><div><i class="lr-icon icon-lr-xinxi"></i><span>未知错误</span></div></dd></dl>		<dl class="lr_reg">		<dt>注册</dt>		<dd>			<i class="lr-icon icon-lr-nickname1"></i>			<input type="text" name="UserName" maxlength="20" autocomplete="off" class="lr_int">			<div class="tip">用户名</div>		</dd>		<dd>			<i class="lr-icon icon-lr-password"></i>			<input type="password" name="PassWord" maxlength="20" class="lr_int">			<div class="tip">密码<em>(至少8位)</em></div>		</dd>		<dd>			<i class="lr-icon icon-lr-cfmpassword"></i>			<input type="password" name="PassWord2" maxlength="20" class="lr_int">			<div class="tip">确认密码</div>		</dd>		<dd><i class="lr-icon icon-lr-ic_tab_username"></i><input type="text" name="PersonName" maxlength="30" class="lr_int"><div class="tip">昵称</div></dd>		<dd><i class="lr-icon icon-lr-webmail"></i><input type="text" name="Email" maxlength="50" class="lr_int"><div class="tip">邮箱<em>(请填写常用邮箱)</em></div></dd>				<dd class="lr_icode"><i class="lr-icon icon-lr-invite2"></i><input type="text" name="Icode" maxlength="22" class="lr_int"><a href="javascript:;" class="geticode">获取邀请码</a><div class="tip">邀请码</div></dd>		<dd class="lr_code"><i class="lr-icon icon-lr-safe1"></i><input type="text" name="Vcode" maxlength="5" class="lr_int"><img class="verfiycode" title="点击切换" src="./windows下编译cef最新版本并支持mp3_mp4_分享你我_files/c_validcode(1).php"><div class="tip">验证码</div></dd>		<dd class="lr_more"><div class="lr_l"><input type="checkbox" id="agreement" name="agreement" class="lr_chk" checked="checked"><label for="agreement">已读并同意《<a href="https://www.javalc.com/post/66.html#" target="_blank">用户注册协议</a>》</label></div><div class="lr_r"><a href="javascript:;" class="lr_reset" target="_self">重填</a><a href="javascript:;" target="_self" class="lr_to_login">登录</a></div></dd>		<dd class="lr_act"><button type="button" class="lr_post">提交</button><div class="lr_manual"><span>若未跳转，可<em>点击这里</em>刷新重试</span></div></dd>	<dd class="lr_btn_close" title="关闭"><i class="lr-icon icon-lr-close"></i></dd><dd class="lr_tips"><div><i class="lr-icon icon-lr-xinxi"></i><span>未知错误</span></div></dd></dl>			<dl class="lr_password_find">		<dt>找回密码</dt>		<dd>			<i class="lr-icon icon-lr-nickname1"></i>			<input type="text" name="UserName" maxlength="20" class="lr_int">			<div class="tip">用户名</div>		</dd>		<dd>			<i class="lr-icon icon-lr-webmail"></i>			<input type="text" name="Email" maxlength="50" class="lr_int">			<div class="tip">邮箱</div>		</dd>		<dd class="lr_more">			<div class="lr_l">※ 重置链接将发送到邮箱</div>			<div class="lr_r"><a href="javascript:;" target="_self" class="lr_to_login">登录</a><a href="javascript:;" class="lr_to_reg" target="_self">注册</a></div>		</dd>		<dd class="lr_act"><button type="button" class="lr_post">提交</button><div class="lr_manual"><span>若未跳转，可<em>点击这里</em>刷新重试</span></div></dd>	<dd class="lr_btn_close" title="关闭"><i class="lr-icon icon-lr-close"></i></dd><dd class="lr_tips"><div><i class="lr-icon icon-lr-xinxi"></i><span>未知错误</span></div></dd></dl>		</div><div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div></body></html>
